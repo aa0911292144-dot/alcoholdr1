@@ -1,0 +1,248 @@
+/* =========================================
+   全局設定 & 設計系統 (Design System)
+   ========================================= */
+:root {
+    --color-bg-dark: #0f0f0f;
+    --color-gold: #c5a059; /* 質感霧面金 */
+    --color-gold-hover: #e0b666;
+    --color-text-main: #f5f5f5;
+    --color-text-muted: #a0a0a0;
+    --font-sans: 'Noto Sans TC', sans-serif;
+    --font-serif: 'Noto Serif TC', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-main);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden; /* 防止手機端出現水平破版 */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =========================================
+   導覽列 (Navbar) - 支援微磨砂玻璃特效
+   ========================================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 0;
+    z-index: 1000;
+    background: rgba(15, 15, 15, 0.7);
+    backdrop-filter: blur(12px); /* 蘋果質感的毛玻璃效果 */
+    -webkit-backdrop-filter: blur(12px); /* 支援 Safari */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* 模擬你原本的白底圓角 Logo */
+.logo {
+    background: #fff;
+    color: #000;
+    font-family: var(--font-serif);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 6px 18px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links li a {
+    font-size: 13px;
+    color: var(--color-text-main);
+    letter-spacing: 1.5px;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: var(--color-gold);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-text-main);
+    transition: 0.3s;
+}
+
+/* =========================================
+   第一區塊：主視覺 (Hero Section)
+   ========================================= */
+.hero {
+    position: relative;
+    height: 100vh; /* 滿版螢幕高度 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* 這裡先放一張無版權的冰球威士忌高畫質圖片作為佔位，之後可換成你自己的原圖 */
+    background-image: url('https://images.unsplash.com/photo-1527281400683-1aae777175f8?q=80&w=2000&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* 產生高級的視差滾動效果 */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(10,10,10,0.4) 0%, rgba(10,10,10,0.85) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out 0.3s forwards; /* 延遲0.3秒進場，更顯優雅 */
+}
+
+.hero-subtitle {
+    font-family: var(--font-serif);
+    font-size: 46px;
+    color: var(--color-gold);
+    margin-bottom: 15px;
+    letter-spacing: 6px;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.hero-description {
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+    color: #e0e0e0;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 14px 40px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.btn-primary {
+    background-color: var(--color-gold);
+    color: #000;
+    font-weight: 600;
+    border: 1px solid var(--color-gold);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-gold-hover);
+    border-color: var(--color-gold-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(197, 160, 89, 0.3);
+}
+
+.btn-outline {
+    background-color: rgba(0,0,0,0.3);
+    color: var(--color-gold);
+    border: 1px solid var(--color-gold);
+    backdrop-filter: blur(5px);
+}
+
+.btn-outline:hover {
+    background-color: var(--color-gold);
+    color: #000;
+    transform: translateY(-3px);
+}
+
+/* =========================================
+   手機版適配 (Mobile Responsive)
+   ========================================= */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* 手機版先隱藏頂部選單 */
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+
+    .hero-subtitle {
+        font-size: 36px;
+        letter-spacing: 4px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+        letter-spacing: 2px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .btn {
+        width: 100%; /* 手機版按鈕滿版寬度，符合大拇指點擊 */
+    }
+    
+    .hero {
+        background-attachment: scroll; /* iOS Safari 效能優化，關閉視差 */
+    }
+}
+
+/* =========================================
+   動畫特效 (Animations)
+   ========================================= */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

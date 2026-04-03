@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博士生技 - 甘杯 | 應酬時的神隊友</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">博士生技</div>
+            <ul class="nav-links">
+                <li><a href="#home">首頁</a></li>
+                <li><a href="#about">關於我們</a></li>
+                <li><a href="#science">科學研究</a></li>
+                <li><a href="#buy">購買</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">聯絡我們</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <h2 class="hero-subtitle">“ 甘杯 ”</h2>
+            <p class="hero-description">把昨夜的喧囂，留在昨夜。</p>
+            <div class="hero-buttons">
+                <a href="#buy" class="btn btn-primary">立即購買</a>
+                <a href="#science" class="btn btn-outline">了解原理</a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
