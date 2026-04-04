@@ -454,3 +454,151 @@ a {
 
     /* 產品展示區 */
     .product-content { flex-direction:
+
+       /* =========================================
+   第四區塊：旗艦產品展示 (Product Showcase)
+   ========================================= */
+.product-section {
+    padding: 120px 20px;
+    background-color: var(--color-bg-dark);
+}
+
+.product-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 標題設計 (還原截圖的菱形元素) */
+.section-title {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.section-title .diamond {
+    color: var(--color-gold);
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+.section-title h2 {
+    font-family: var(--font-serif);
+    font-size: 32px;
+    color: var(--color-gold);
+    margin: 15px 0;
+    letter-spacing: 3px;
+    font-weight: 400;
+}
+
+.title-line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.title-line::before,
+.title-line::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 1px;
+    background-color: rgba(197, 160, 89, 0.4);
+}
+
+.diamond-small {
+    color: var(--color-gold);
+    font-size: 10px;
+}
+
+/* 排版佈局 (左圖右文) */
+.product-content {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start; /* 讓兩邊頂部對齊 */
+}
+
+/* 左側圖片區塊 (加入 Sticky 黏性定位特效) */
+.product-image-wrapper {
+    flex: 1;
+    position: sticky;
+    top: 100px; /* 當滑動到距離頂部 100px 時固定住 */
+}
+
+.product-image-wrapper img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}
+
+/* 右側成分列表 */
+.ingredients-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.ingredient-item {
+    background: rgba(255, 255, 255, 0.02); /* 極淡的白底，增加層次 */
+    padding: 30px;
+    border-radius: 8px;
+    border-left: 2px solid var(--color-gold);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.ingredient-item:hover {
+    transform: translateX(10px); /* 滑鼠移入時微微向右浮動 */
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.ingredient-title {
+    font-size: 18px;
+    color: var(--color-text-main);
+    margin-bottom: 12px;
+    letter-spacing: 1.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.diamond-icon {
+    color: var(--color-gold);
+    font-size: 12px;
+}
+
+.ingredient-desc {
+    font-size: 15px;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    letter-spacing: 1px;
+}
+
+.ingredient-desc strong {
+    color: #fff;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* =========================================
+   手機版適配 (Mobile Responsive)
+   ========================================= */
+@media (max-width: 900px) {
+    .product-content {
+        flex-direction: column; /* 手機版改為上下排列 */
+        gap: 40px;
+    }
+
+    .product-image-wrapper {
+        position: relative;
+        top: 0;
+    }
+
+    .section-title h2 {
+        font-size: 24px;
+    }
+
+    .ingredient-item {
+        padding: 20px;
+    }
+}
