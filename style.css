@@ -3,8 +3,8 @@
    ========================================= */
 :root {
     --color-bg-dark: #0f0f0f;
-    --color-bg-light-dark: #141414; /* 區塊層次交替使用 */
-    --color-gold: #c5a059; /* 質感霧面金 */
+    --color-bg-light-dark: #141414;
+    --color-gold: #c5a059;
     --color-gold-hover: #e0b666;
     --color-text-main: #f5f5f5;
     --color-text-muted: #a0a0a0;
@@ -153,7 +153,6 @@ a {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-image: url('https://images.unsplash.com/photo-1527281400683-1aae777175f8?q=80&w=2000&auto=format&fit=crop');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -198,7 +197,7 @@ a {
 }
 
 /* =========================================
-   第二區塊：痛點情境區 (Pain Points Section)
+   第二區塊：痛點情境區 (Pain Points)
    ========================================= */
 .pain-points-section {
     padding: 100px 20px;
@@ -267,7 +266,7 @@ a {
    ========================================= */
 .quote-section {
     padding: 120px 20px;
-    background-color: var(--color-bg-light-dark); /* 深灰底色，與上下區分 */
+    background-color: var(--color-bg-light-dark);
     text-align: center;
     border-top: 1px solid rgba(197, 160, 89, 0.1);
     border-bottom: 1px solid rgba(197, 160, 89, 0.1);
@@ -309,32 +308,149 @@ a {
 }
 
 /* =========================================
-   手機版適配 (Mobile Responsive)
+   第四區塊：旗艦產品展示 (Product Showcase)
    ========================================= */
-@media (max-width: 768px) {
+.product-section {
+    padding: 120px 20px;
+    background-color: var(--color-bg-dark);
+}
+
+.product-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.section-title .diamond {
+    color: var(--color-gold);
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+.section-title h2 {
+    font-family: var(--font-serif);
+    font-size: 32px;
+    color: var(--color-gold);
+    margin: 15px 0;
+    letter-spacing: 3px;
+    font-weight: 400;
+}
+
+.title-line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.title-line::before,
+.title-line::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 1px;
+    background-color: rgba(197, 160, 89, 0.4);
+}
+
+.diamond-small {
+    color: var(--color-gold);
+    font-size: 10px;
+}
+
+.product-content {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+.product-image-wrapper {
+    flex: 1;
+    position: sticky;
+    top: 100px; 
+}
+
+.product-image-wrapper img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}
+
+.ingredients-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.ingredient-item {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 30px;
+    border-radius: 8px;
+    border-left: 2px solid var(--color-gold);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.ingredient-item:hover {
+    transform: translateX(10px);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.ingredient-title {
+    font-size: 18px;
+    color: var(--color-text-main);
+    margin-bottom: 12px;
+    letter-spacing: 1.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.diamond-icon {
+    color: var(--color-gold);
+    font-size: 12px;
+}
+
+.ingredient-desc {
+    font-size: 15px;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    letter-spacing: 1px;
+}
+
+.ingredient-desc strong {
+    color: #fff;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* =========================================
+   全局手機版適配 (Mobile Responsive)
+   ========================================= */
+@media (max-width: 900px) {
+    /* 導覽列與首頁 */
     .nav-links { display: none; }
     .hamburger { display: flex; }
-
     .hero-subtitle { font-size: 36px; letter-spacing: 4px; }
     .hero-description { font-size: 15px; letter-spacing: 2px; }
     .hero-buttons { flex-direction: column; gap: 15px; width: 100%; max-width: 300px; margin: 0 auto; }
     .btn { width: 100%; }
     .hero { background-attachment: scroll; }
 
+    /* 痛點區 */
     .pain-points-section { padding: 60px 20px; }
     .container { gap: 60px; }
     .pain-card, .pain-card.reverse { flex-direction: column; text-align: center; gap: 25px; }
     .pain-img-wrapper img { height: 300px; }
     .pain-text h3 { font-size: 18px; line-height: 1.6; }
 
+    /* 創辦人語錄 */
     .quote-section { padding: 80px 20px; }
     .quote-text { font-size: 15px; line-height: 2; letter-spacing: 1.5px; }
-}
 
-/* =========================================
-   動畫特效 (Animations)
-   ========================================= */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+    /* 產品展示區 */
+    .product-content { flex-direction:
