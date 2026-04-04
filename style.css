@@ -12,16 +12,8 @@
     --font-serif: 'Noto Serif TC', serif;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
     background-color: var(--color-bg-dark);
     color: var(--color-text-main);
@@ -29,410 +21,92 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
 }
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
+a { text-decoration: none; color: inherit; }
 
 /* =========================================
    導覽列 (Navbar)
    ========================================= */
 .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 20px 0;
-    z-index: 1000;
-    background: rgba(15, 15, 15, 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.3s ease;
+    position: fixed; top: 0; width: 100%; padding: 20px 0; z-index: 1000;
+    background: rgba(15, 15, 15, 0.7); backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.3s ease;
 }
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-}
-
-.logo {
-    background: #fff;
-    color: #000;
-    font-family: var(--font-serif);
-    font-size: 14px;
-    font-weight: 600;
-    padding: 6px 18px;
-    border-radius: 20px;
-    letter-spacing: 1px;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-}
-
-.nav-links li a {
-    font-size: 13px;
-    color: var(--color-text-main);
-    letter-spacing: 1.5px;
-    transition: color 0.3s;
-}
-
-.nav-links li a:hover {
-    color: var(--color-gold);
-}
-
-.hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-}
-
-.hamburger span {
-    width: 24px;
-    height: 2px;
-    background-color: var(--color-text-main);
-    transition: 0.3s;
-}
+.nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+.logo { background: #fff; color: #000; font-family: var(--font-serif); font-size: 14px; font-weight: 600; padding: 6px 18px; border-radius: 20px; letter-spacing: 1px; }
+.nav-links { display: flex; list-style: none; gap: 30px; }
+.nav-links li a { font-size: 13px; color: var(--color-text-main); letter-spacing: 1.5px; transition: color 0.3s; }
+.nav-links li a:hover { color: var(--color-gold); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.hamburger span { width: 24px; height: 2px; background-color: var(--color-text-main); transition: 0.3s; }
 
 /* =========================================
    共用按鈕設計 (Buttons)
    ========================================= */
-.btn {
-    padding: 14px 40px;
-    font-size: 14px;
-    letter-spacing: 2px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    text-align: center;
-}
-
-.btn-primary {
-    background-color: var(--color-gold);
-    color: #000;
-    font-weight: 600;
-    border: 1px solid var(--color-gold);
-}
-
-.btn-primary:hover {
-    background-color: var(--color-gold-hover);
-    border-color: var(--color-gold-hover);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(197, 160, 89, 0.3);
-}
-
-.btn-outline {
-    background-color: rgba(0,0,0,0.3);
-    color: var(--color-gold);
-    border: 1px solid var(--color-gold);
-    backdrop-filter: blur(5px);
-}
-
-.btn-outline:hover {
-    background-color: var(--color-gold);
-    color: #000;
-    transform: translateY(-3px);
-}
+.btn { padding: 14px 40px; font-size: 14px; letter-spacing: 2px; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; text-align: center; display: inline-block; }
+.btn-primary { background-color: var(--color-gold); color: #000; font-weight: 600; border: 1px solid var(--color-gold); }
+.btn-primary:hover { background-color: var(--color-gold-hover); border-color: var(--color-gold-hover); transform: translateY(-3px); box-shadow: 0 6px 15px rgba(197, 160, 89, 0.3); }
+.btn-outline { background-color: rgba(0,0,0,0.3); color: var(--color-gold); border: 1px solid var(--color-gold); backdrop-filter: blur(5px); }
+.btn-outline:hover { background-color: var(--color-gold); color: #000; transform: translateY(-3px); }
 
 /* =========================================
-   第一區塊：主視覺 (Hero Section)
+   1. 第一區塊：主視覺 (Hero Section)
    ========================================= */
-.hero {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to bottom, rgba(10,10,10,0.4) 0%, rgba(10,10,10,0.85) 100%);
-    z-index: 1;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    padding: 0 20px;
-    opacity: 0;
-    animation: fadeIn 1.5s ease-out 0.3s forwards;
-}
-
-.hero-subtitle {
-    font-family: var(--font-serif);
-    font-size: 46px;
-    color: var(--color-gold);
-    margin-bottom: 15px;
-    letter-spacing: 6px;
-    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
-}
-
-.hero-description {
-    font-size: 18px;
-    font-weight: 300;
-    letter-spacing: 3px;
-    margin-bottom: 40px;
-    color: #e0e0e0;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-}
+.hero { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background-size: cover; background-position: center; background-attachment: fixed; }
+.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(10,10,10,0.4) 0%, rgba(10,10,10,0.85) 100%); z-index: 1; }
+.hero-content { position: relative; z-index: 2; padding: 0 20px; opacity: 0; animation: fadeIn 1.5s ease-out 0.3s forwards; }
+.hero-subtitle { font-family: var(--font-serif); font-size: 46px; color: var(--color-gold); margin-bottom: 15px; letter-spacing: 6px; text-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+.hero-description { font-size: 18px; font-weight: 300; letter-spacing: 3px; margin-bottom: 40px; color: #e0e0e0; }
+.hero-buttons { display: flex; gap: 20px; justify-content: center; }
 
 /* =========================================
-   第二區塊：痛點情境區 (Pain Points)
+   2. 第二區塊：痛點情境區 (Pain Points)
    ========================================= */
-.pain-points-section {
-    padding: 100px 20px;
-    background-color: var(--color-bg-dark);
-}
-
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 80px;
-}
-
-.pain-card {
-    display: flex;
-    align-items: center;
-    gap: 50px;
-}
-
-.pain-card.reverse {
-    flex-direction: row-reverse;
-}
-
-.pain-img-wrapper {
-    flex: 1;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.pain-img-wrapper img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    display: block;
-    filter: grayscale(30%) brightness(0.8);
-    transition: transform 0.5s ease;
-}
-
-.pain-card:hover .pain-img-wrapper img {
-    transform: scale(1.05);
-    filter: grayscale(0%) brightness(1);
-}
-
-.pain-text {
-    flex: 1;
-}
-
-.pain-text h3 {
-    font-family: var(--font-serif);
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 1.8;
-    color: var(--color-text-main);
-    letter-spacing: 2px;
-}
-
-.pain-text .highlight {
-    color: var(--color-gold);
-    font-weight: 600;
-}
+.pain-points-section { padding: 100px 20px; background-color: var(--color-bg-dark); }
+.container { max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 80px; }
+.pain-card { display: flex; align-items: center; gap: 50px; }
+.pain-card.reverse { flex-direction: row-reverse; }
+.pain-img-wrapper { flex: 1; overflow: hidden; border-radius: 8px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); }
+.pain-img-wrapper img { width: 100%; height: 400px; object-fit: cover; display: block; filter: grayscale(30%) brightness(0.8); transition: transform 0.5s ease; }
+.pain-card:hover .pain-img-wrapper img { transform: scale(1.05); filter: grayscale(0%) brightness(1); }
+.pain-text { flex: 1; }
+.pain-text h3 { font-family: var(--font-serif); font-size: 24px; font-weight: 400; line-height: 1.8; color: var(--color-text-main); letter-spacing: 2px; }
+.pain-text .highlight { color: var(--color-gold); font-weight: 600; }
 
 /* =========================================
-   第三區塊：創辦人語錄 (Founder Quote)
+   3. 第三區塊：創辦人語錄 (Founder Quote)
    ========================================= */
-.quote-section {
-    padding: 120px 20px;
-    background-color: var(--color-bg-light-dark);
-    text-align: center;
-    border-top: 1px solid rgba(197, 160, 89, 0.1);
-    border-bottom: 1px solid rgba(197, 160, 89, 0.1);
-}
-
-.quote-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.quote-icon {
-    font-family: var(--font-serif);
-    font-size: 64px;
-    color: var(--color-gold);
-    line-height: 1;
-    margin-bottom: 20px;
-    opacity: 0.8;
-}
-
-.quote-text {
-    font-family: var(--font-serif);
-    font-size: 18px;
-    line-height: 2.2;
-    color: #e0e0e0;
-    letter-spacing: 2px;
-    margin-bottom: 40px;
-}
-
-.quote-author {
-    color: var(--color-gold);
-    font-size: 14px;
-    letter-spacing: 2px;
-    font-weight: 500;
-}
-
-.quote-btn {
-    margin-top: 40px;
-    display: inline-block;
-}
+.quote-section { padding: 120px 20px; background-color: var(--color-bg-light-dark); text-align: center; border-top: 1px solid rgba(197, 160, 89, 0.1); border-bottom: 1px solid rgba(197, 160, 89, 0.1); }
+.quote-container { max-width: 800px; margin: 0 auto; }
+.quote-icon { font-family: var(--font-serif); font-size: 64px; color: var(--color-gold); line-height: 1; margin-bottom: 20px; opacity: 0.8; }
+.quote-text { font-family: var(--font-serif); font-size: 18px; line-height: 2.2; color: #e0e0e0; letter-spacing: 2px; margin-bottom: 40px; }
+.quote-author { color: var(--color-gold); font-size: 14px; letter-spacing: 2px; font-weight: 500; }
 
 /* =========================================
-   第四區塊：旗艦產品展示 (Product Showcase)
+   4. 第四區塊：旗艦產品展示 (Product Showcase)
    ========================================= */
-.product-section {
-    padding: 120px 20px;
-    background-color: var(--color-bg-dark);
-}
-
-.product-container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 80px;
-}
-
-.section-title .diamond {
-    color: var(--color-gold);
-    font-size: 14px;
-    vertical-align: middle;
-}
-
-.section-title h2 {
-    font-family: var(--font-serif);
-    font-size: 32px;
-    color: var(--color-gold);
-    margin: 15px 0;
-    letter-spacing: 3px;
-    font-weight: 400;
-}
-
-.title-line {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-.title-line::before,
-.title-line::after {
-    content: "";
-    display: block;
-    width: 60px;
-    height: 1px;
-    background-color: rgba(197, 160, 89, 0.4);
-}
-
-.diamond-small {
-    color: var(--color-gold);
-    font-size: 10px;
-}
-
-.product-content {
-    display: flex;
-    gap: 60px;
-    align-items: flex-start;
-}
-
-.product-image-wrapper {
-    flex: 1;
-    position: sticky;
-    top: 100px; 
-}
-
-.product-image-wrapper img {
-    width: 100%;
-    border-radius: 4px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-}
-
-.ingredients-list {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-.ingredient-item {
-    background: rgba(255, 255, 255, 0.02);
-    padding: 30px;
-    border-radius: 8px;
-    border-left: 2px solid var(--color-gold);
-    transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.ingredient-item:hover {
-    transform: translateX(10px);
-    background: rgba(255, 255, 255, 0.05);
-}
-
-.ingredient-title {
-    font-size: 18px;
-    color: var(--color-text-main);
-    margin-bottom: 12px;
-    letter-spacing: 1.5px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.diamond-icon {
-    color: var(--color-gold);
-    font-size: 12px;
-}
-
-.ingredient-desc {
-    font-size: 15px;
-    color: var(--color-text-muted);
-    line-height: 1.8;
-    letter-spacing: 1px;
-}
-
-.ingredient-desc strong {
-    color: #fff;
-    font-weight: 500;
-    display: block;
-    margin-bottom: 5px;
-}
+.product-section { padding: 120px 20px; background-color: var(--color-bg-dark); }
+.product-container { max-width: 1200px; margin: 0 auto; }
+.section-title { text-align: center; margin-bottom: 80px; }
+.section-title .diamond { color: var(--color-gold); font-size: 14px; vertical-align: middle; }
+.section-title h2 { font-family: var(--font-serif); font-size: 32px; color: var(--color-gold); margin: 15px 0; letter-spacing: 3px; font-weight: 400; }
+.title-line { display: flex; justify-content: center; align-items: center; gap: 10px; }
+.title-line::before, .title-line::after { content: ""; display: block; width: 60px; height: 1px; background-color: rgba(197, 160, 89, 0.4); }
+.diamond-small { color: var(--color-gold); font-size: 10px; }
+.product-content { display: flex; gap: 60px; align-items: flex-start; }
+.product-image-wrapper { flex: 1; position: sticky; top: 100px; }
+.product-image-wrapper img { width: 100%; border-radius: 4px; box-shadow: 0 15px 40px rgba(0,0,0,0.6); }
+.ingredients-list { flex: 1; display: flex; flex-direction: column; gap: 40px; }
+.ingredient-item { background: rgba(255, 255, 255, 0.02); padding: 30px; border-radius: 8px; border-left: 2px solid var(--color-gold); transition: transform 0.3s ease, background 0.3s ease; }
+.ingredient-item:hover { transform: translateX(10px); background: rgba(255, 255, 255, 0.05); }
+.ingredient-title { font-size: 18px; color: var(--color-text-main); margin-bottom: 12px; letter-spacing: 1.5px; display: flex; align-items: center; gap: 10px; }
+.diamond-icon { color: var(--color-gold); font-size: 12px; }
+.ingredient-desc { font-size: 15px; color: var(--color-text-muted); line-height: 1.8; letter-spacing: 1px; }
+.ingredient-desc strong { color: #fff; font-weight: 500; display: block; margin-bottom: 5px; }
 
 /* =========================================
-   全局手機版適配 (Mobile Responsive)
+   手機版適配 (Mobile Responsive)
    ========================================= */
 @media (max-width: 900px) {
-    /* 導覽列與首頁 */
     .nav-links { display: none; }
     .hamburger { display: flex; }
     .hero-subtitle { font-size: 36px; letter-spacing: 4px; }
@@ -440,165 +114,20 @@ a {
     .hero-buttons { flex-direction: column; gap: 15px; width: 100%; max-width: 300px; margin: 0 auto; }
     .btn { width: 100%; }
     .hero { background-attachment: scroll; }
-
-    /* 痛點區 */
     .pain-points-section { padding: 60px 20px; }
     .container { gap: 60px; }
     .pain-card, .pain-card.reverse { flex-direction: column; text-align: center; gap: 25px; }
     .pain-img-wrapper img { height: 300px; }
     .pain-text h3 { font-size: 18px; line-height: 1.6; }
-
-    /* 創辦人語錄 */
     .quote-section { padding: 80px 20px; }
     .quote-text { font-size: 15px; line-height: 2; letter-spacing: 1.5px; }
-
-    /* 產品展示區 */
-    .product-content { flex-direction:
-
-       /* =========================================
-   第四區塊：旗艦產品展示 (Product Showcase)
-   ========================================= */
-.product-section {
-    padding: 120px 20px;
-    background-color: var(--color-bg-dark);
-}
-
-.product-container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* 標題設計 (還原截圖的菱形元素) */
-.section-title {
-    text-align: center;
-    margin-bottom: 80px;
-}
-
-.section-title .diamond {
-    color: var(--color-gold);
-    font-size: 14px;
-    vertical-align: middle;
-}
-
-.section-title h2 {
-    font-family: var(--font-serif);
-    font-size: 32px;
-    color: var(--color-gold);
-    margin: 15px 0;
-    letter-spacing: 3px;
-    font-weight: 400;
-}
-
-.title-line {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-.title-line::before,
-.title-line::after {
-    content: "";
-    display: block;
-    width: 60px;
-    height: 1px;
-    background-color: rgba(197, 160, 89, 0.4);
-}
-
-.diamond-small {
-    color: var(--color-gold);
-    font-size: 10px;
-}
-
-/* 排版佈局 (左圖右文) */
-.product-content {
-    display: flex;
-    gap: 60px;
-    align-items: flex-start; /* 讓兩邊頂部對齊 */
-}
-
-/* 左側圖片區塊 (加入 Sticky 黏性定位特效) */
-.product-image-wrapper {
-    flex: 1;
-    position: sticky;
-    top: 100px; /* 當滑動到距離頂部 100px 時固定住 */
-}
-
-.product-image-wrapper img {
-    width: 100%;
-    border-radius: 4px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-}
-
-/* 右側成分列表 */
-.ingredients-list {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-.ingredient-item {
-    background: rgba(255, 255, 255, 0.02); /* 極淡的白底，增加層次 */
-    padding: 30px;
-    border-radius: 8px;
-    border-left: 2px solid var(--color-gold);
-    transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.ingredient-item:hover {
-    transform: translateX(10px); /* 滑鼠移入時微微向右浮動 */
-    background: rgba(255, 255, 255, 0.05);
-}
-
-.ingredient-title {
-    font-size: 18px;
-    color: var(--color-text-main);
-    margin-bottom: 12px;
-    letter-spacing: 1.5px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.diamond-icon {
-    color: var(--color-gold);
-    font-size: 12px;
-}
-
-.ingredient-desc {
-    font-size: 15px;
-    color: var(--color-text-muted);
-    line-height: 1.8;
-    letter-spacing: 1px;
-}
-
-.ingredient-desc strong {
-    color: #fff;
-    font-weight: 500;
-    display: block;
-    margin-bottom: 5px;
+    .product-content { flex-direction: column; gap: 40px; }
+    .product-image-wrapper { position: relative; top: 0; }
+    .section-title h2 { font-size: 24px; }
+    .ingredient-item { padding: 20px; }
 }
 
 /* =========================================
-   手機版適配 (Mobile Responsive)
+   動畫特效 (Animations)
    ========================================= */
-@media (max-width: 900px) {
-    .product-content {
-        flex-direction: column; /* 手機版改為上下排列 */
-        gap: 40px;
-    }
-
-    .product-image-wrapper {
-        position: relative;
-        top: 0;
-    }
-
-    .section-title h2 {
-        font-size: 24px;
-    }
-
-    .ingredient-item {
-        padding: 20px;
-    }
-}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
