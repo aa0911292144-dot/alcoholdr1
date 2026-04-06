@@ -10,106 +10,167 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="premium-nav">
-        <div class="nav-container">
+
+    <nav class="navbar">
+        <div class="container nav-container">
             <div class="logo">
-                <img src="https://via.placeholder.com/150x50/000000/C5A059?text=Doctoral+Biotech" alt="博士生技">
+                <span class="logo-text">博士生技</span> 
             </div>
             <div class="nav-links">
-                <a href="#home">首頁</a>
-                <a href="#about">關於我們</a>
-                <a href="#science">科學研究</a>
-                <a href="#shop">購買</a>
-                <a href="#faq">FAQ</a>
+                <a href="index.html" class="active">首頁</a>
+                <a href="about.html">關於我們</a>
+                <a href="science.html">科學研究</a>
+                <a href="shop.html">購買</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">聯絡我們</a>
             </div>
         </div>
     </nav>
 
-    <section id="home" class="hero-section">
-        <div class="hero-bg"></div> <div class="hero-content">
-            <h2 class="gold-quote">“ 甘 杯 “</h2>
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content gs-reveal">
+            <h2 class="hero-subtitle">“ 甘 杯 “</h2>
             <h1 class="hero-title">把昨夜的喧囂，留在昨夜。</h1>
             <div class="btn-group">
-                <a href="#shop" class="btn btn-primary">立即購買</a>
-                <a href="#about" class="btn btn-secondary">了解原理</a>
+                <a href="shop.html" class="btn btn-gold">立即購買</a>
+                <a href="#quote" class="btn btn-outline">了解原理</a>
             </div>
         </div>
     </section>
 
-    <section id="about" class="quote-section">
+    <section id="quote" class="quote-section gs-reveal">
         <div class="container text-center">
-            <div class="quote-icon">”</div>
-            <p class="main-quote">「酒精讓靈魂誠實，但身體需要理性的護航。多年的酒吧後場經驗告訴我：</p>
-            <p class="main-quote">最好的款待，是讓你在狂歡之後，依然能平穩地回歸日常。」</p>
-            <p class="sub-quote">我們不談奇蹟，只談科學的營養支持。『博士生技』——為了每一個在社交戰場上，依然想保持優雅的靈魂——敬你的努力，也敬你那值得被好好對待的新陳代謝。</p>
-            <p class="author">— 博士生技創辦人 x 前資深酒吧從業者</p>
-            <a href="#more" class="btn btn-outline-gold">了解更多</a>
+            <div class="quote-mark">❞</div>
+            <p class="quote-main">「酒精讓靈魂誠實，但身體需要理性的護航。多年的酒吧後場經驗告訴我：<br>
+            最好的款待，是讓你在狂歡之後，依然能平穩地回歸日常。」</p>
+            <p class="quote-sub">我們不談奇蹟，只談科學的營養支持。『博士生技』——為了每一個在社交戰場上，依然想保持優雅的靈魂——敬你的努力，也敬你那值得被好好對待的新陳代謝。</p>
+            <p class="quote-author">— 博士生技創辦人 x 前資深酒吧從業者</p>
+            <a href="about.html" class="btn btn-white">了解更多</a>
         </div>
     </section>
 
-    <section id="science" class="product-section">
+    <section class="product-section">
         <div class="container">
-            <div class="section-header text-center">
-                <span class="diamond">◆</span> <span class="subtitle">旗艦產品</span> <span class="diamond">◆</span>
+            <div class="section-heading text-center gs-reveal">
+                <span class="gold-diamond">◆</span> 旗艦產品 <span class="gold-diamond">◆</span>
                 <h2 class="section-title">甘杯 — C3薑黃 × 枳椇子複方膠囊</h2>
-                <div class="diamond-divider">
-                    <span>◆</span><span>◆</span><span>◆</span>
-                </div>
+                <div class="divider"><span>◆</span><span>◆</span><span>◆</span></div>
             </div>
-            
-            <div class="product-grid">
-                <div class="product-image gs-reveal">
-                    <img src="https://images.unsplash.com/photo-1584017911766-d451b3d0e843?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="甘杯產品">
+
+            <div class="product-layout">
+                <div class="product-img-wrapper gs-reveal-left">
+                    <img src="./images/product.jpg" alt="甘杯產品盒裝" class="product-img">
                 </div>
-                <div class="product-details">
-                    <div class="detail-item gs-reveal">
+                <div class="ingredient-list gs-reveal-right">
+                    <div class="ingredient-item">
                         <h3>◆ C3 專利薑黃萃取物</h3>
-                        <p>代謝升級。配方頂規採用 C3 Complex® 專利吸收技術，在社交應酬時啟動代謝，由內而外緩解負擔。</p>
+                        <p>代謝升級，體力後援。採用 C3 Complex® 高吸收專利技術，在社交高壓時刻促進新陳代謝，由內而外滋補強身，為你續航關鍵體力。</p>
                     </div>
-                    <div class="detail-item gs-reveal">
-                        <h3>◆ 日本專利級穀胱甘肽 (GSH)</h3>
-                        <p>抗氧化力。促進平穩的新陳代謝，具備養顏美容與調節生理機能。</p>
+                    <div class="ingredient-item">
+                        <h3>◆ 日本專利級穀胱甘肽(GSH)</h3>
+                        <p>抗氧化力，能量平衡。補充關鍵代謝動能，具優異抗氧化作用並協助調節生理機能，讓身體能量在律動中維持正常代謝。</p>
                     </div>
-                    <div class="detail-item gs-reveal">
+                    <div class="ingredient-item">
                         <h3>◆ 專利枳椇子萃取</h3>
-                        <p>解醉消臭。漢方醫學記載之傳統草本精華，支援應酬後的機能平衡。</p>
+                        <p>回歸清爽，狀態歸零。嚴選東亞傳統植萃精華，支援深夜後的機能平衡，協助身體恢復清爽神采，重新掌握生活節奏。</p>
+                    </div>
+                    <div class="ingredient-item">
+                        <h3>◆ 專利朝鮮薊萃取</h3>
+                        <p>植萃防護罩，守護長期體面。萃取自歐洲風行多年的「蔬菜之皇」，高活性洋薊酸為頻繁的舉杯時刻，預先建立一道堅實的健康防線。</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="pain-point-section">
+    <section class="portable-section gs-reveal">
+        <div class="container portable-layout">
+            <div class="portable-img-wrapper">
+                <img src="./images/product.jpg" alt="甘杯單包裝" class="portable-img"> 
+            </div>
+            <div class="portable-text">
+                <h2 class="gold-title">方便攜帶</h2>
+                <p>不佔空間的貼心隨手一包，<br>把今晚的主導權拿回來。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cert-section gs-reveal">
+        <div class="container text-center">
+            <h2 class="gold-title-line"><span>安全認證</span></h2>
+            <div class="cert-box">
+                <div class="cert-grid">
+                    <div class="cert-item"><div class="icon">🛡️</div><p>GRAS認證原料</p></div>
+                    <div class="cert-item"><div class="icon">🏅</div><p>符合USP規範</p></div>
+                    <div class="cert-item"><div class="icon">🌐</div><p>HALAL原料認證</p></div>
+                    <div class="cert-item"><div class="icon">K</div><p>符合KOSHER規範</p></div>
+                    <div class="cert-item"><div class="icon">✅</div><p>通過FSC22000認證</p></div>
+                    <div class="cert-item"><div class="icon">⚙️</div><p>符合GMP生產規範</p></div>
+                </div>
+            </div>
+            <div class="cert-desc">
+                <h3 class="gold-title">嚴選認證原料</h3>
+                <p>多國專利植萃，為品質安心把關。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="pain-section">
         <div class="container">
-            <div class="section-header text-center gs-reveal">
+            <div class="text-center gs-reveal">
                 <h3 class="gold-italic">"你是否也有過這樣的早晨"</h3>
                 <h2 class="section-title">應酬後的<span class="gold-text">隔天</span>，是你最難應付的戰場</h2>
-                <p class="sub-desc">每一次宿醉，不只是身體的不適——它是一筆算得清楚的商業成本。</p>
+                <p class="section-desc">每一次宿醉，不只是身體的不適——它是一筆算得清楚的商業成本。頭痛、失憶、注意力渙散，讓你在最重要的時刻，以最不好的狀態出現。</p>
             </div>
 
             <div class="pain-grid">
-                <div class="pain-card gs-reveal">
+                <div class="pain-card gs-reveal-up">
                     <h2 class="gold-text">濁</h2>
                     <h3>思路沉重，無法開機的晨間</h3>
                     <p>昨晚的喧囂在腦海留下厚重的霧。當思考需要支付龐大的體力代價，你損失的不只是清晨，而是精準決策的先機。</p>
                 </div>
-                <div class="pain-card gs-reveal">
+                <div class="pain-card gs-reveal-up">
                     <h2 class="gold-text">斷</h2>
                     <h3>斷片的體面，斷裂的信任</h3>
-                    <p>最可怕的不是忘記說了什麼，而是忘記了對誰許下承諾。</p>
+                    <p>最可怕的不是忘記說了什麼，而是忘記了對誰許下承諾。當記憶出現空白，專業形象也隨之出現難以修補的裂縫。</p>
                 </div>
-                <div class="pain-card gs-reveal">
+                <div class="pain-card gs-reveal-up">
                     <h2 class="gold-text">渴</h2>
                     <h3>透支的動能，空轉的行事曆</h3>
-                    <p>身體機能處於停滯邊緣，即便面對最重要的會議也力不從心。</p>
+                    <p>身體機能處於停滯邊緣，即便面對最重要的會議也力不從心。這不是疲勞，而是生理節奏在高壓社交後的徹底失序。</p>
                 </div>
-                <div class="pain-card gs-reveal">
+                <div class="pain-card gs-reveal-up">
                     <h2 class="gold-text">悶</h2>
                     <h3>內在失衡，拒絕運作的抗議</h3>
-                    <p>失去平衡的生理狀態，讓你連基本的補給都顯得艱難。</p>
+                    <p>失去平衡的生理狀態，讓你連基本的補給都顯得艱難。當身體拒絕配合你的節奏，今天的戰場你已先行退席。</p>
                 </div>
-                <div class="pain-card gs-reveal">
+                <div class="pain-card gs-reveal-up">
                     <h2 class="gold-text">浮</h2>
                     <h3>焦慮餘震，難以平靜的節奏</h3>
-                    <p>深夜的亢奮化作隔日的空虛與不安。律動失調的生理反應讓你如坐針氈。</p>
+                    <p>深夜的亢奮化作隔日的空虛與不安。律動失調的生理反應，讓你即便坐在辦公桌前，靈魂卻依然在昨晚的酒氣中浮沉。</p>
                 </div>
+                <div class="pain-card gs-reveal-up">
+                    <h2 class="gold-text">局</h2>
+                    <h3>無法離席，是商業社會的誠意</h3>
+                    <p>合作、升遷、凝聚力——舉杯是避不開的共同語言。我們懂那份「不能不去」的沉重，所以為你守住最後的清爽。</p>
+                </div>
+            </div>
+            
+            <p class="insurance-text text-center gs-reveal">*本產品已投保新台幣 1000 萬產品責任險*</p>
+        </div>
+    </section>
+
+    <section class="cta-section gs-reveal">
+        <div class="container text-center">
+            <h2>試用包申請</h2>
+            <p>加 LINE 免費拿試用包，吃完填回饋告訴我們有多神。(2包)</p>
+            <a href="#" class="btn btn-white line-btn">LINE</a>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
