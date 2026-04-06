@@ -1,3 +1,4 @@
+/* ... 保留上一次的 root 變數與基礎設定 ... */
 :root {
     --bg-dark: #0A0A0A; 
     --surface-dark: #121212;
@@ -15,55 +16,37 @@
 html { scroll-behavior: smooth; font-size: 16px; }
 
 body {
-    background-color: var(--bg-dark); 
-    color: var(--text-light);
-    font-family: var(--font-sans); 
-    line-height: 1.8; 
-    overflow-x: hidden;
-    letter-spacing: 0.05em; 
+    background-color: var(--bg-dark); color: var(--text-light);
+    font-family: var(--font-sans); line-height: 1.8; overflow-x: hidden; letter-spacing: 0.05em; 
 }
 
 .container { max-width: 1140px; margin: 0 auto; padding: 0 5%; }
 .text-center { text-align: center; }
 
-/* 奢華漸層金文字特效 */
 .text-gradient {
     background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block;
 }
 
-/* 導覽列 */
-.navbar {
-    position: fixed; top: 0; width: 100%; z-index: 1000;
-    background: rgba(10, 10, 10, 0.85); backdrop-filter: blur(12px); 
-    border-bottom: 1px solid rgba(212, 175, 55, 0.15); padding: 15px 0;
-    transition: all 0.4s ease;
-}
+/* 導覽列與按鈕 (沿用) */
+.navbar { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(10, 10, 10, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(212, 175, 55, 0.15); padding: 15px 0; transition: all 0.4s ease; }
 .nav-container { display: flex; justify-content: space-between; align-items: center; }
 .logo-img { height: 45px; width: auto; display: block; border-radius: 2px; }
 .nav-links a { color: var(--text-light); text-decoration: none; margin-left: 35px; font-size: 0.9rem; font-weight: 300; transition: 0.3s; }
 .nav-links a:hover { color: var(--gold-primary); }
 
-/* 按鈕 */
 .btn { display: inline-block; padding: 14px 40px; text-decoration: none; letter-spacing: 0.15em; font-size: 0.9rem; transition: 0.4s; position: relative; overflow: hidden; border-radius: 2px;}
 .btn-gold { background: linear-gradient(to right, var(--gold-dark), var(--gold-primary)); color: #000; border: none; }
 .btn-outline { border: 1px solid var(--gold-primary); color: var(--gold-primary); }
-.btn-outline:hover { background: rgba(212, 175, 55, 0.1); }
 .btn-white { background: #fff; color: #000; padding: 15px 50px; font-weight: 600; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
-.btn-white:hover { background: #f0f0f0; transform: translateY(-3px); }
 
-/* Hero 主視覺 */
-.hero {
-    height: 100vh; display: flex; align-items: center; justify-content: center;
-    position: relative; text-align: center;
-    background: url('images/hero-bg.jpg') center/cover no-repeat fixed; 
-}
+/* === Hero 若隱若現進場動畫準備 === */
+.hero { height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; text-align: center; background: url('images/hero-bg.jpg') center/cover no-repeat fixed; }
 .hero-overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.9)); }
 .hero-content { position: relative; z-index: 1; }
 .hero-subtitle { font-family: var(--font-serif); font-size: 1.5rem; letter-spacing: 0.5em; margin-bottom: 20px;}
 .hero-title { font-family: var(--font-serif); font-size: 4rem; margin-bottom: 50px; letter-spacing: 0.1em; text-shadow: 0 10px 30px rgba(0,0,0,0.8);}
+/* 動畫初始狀態由 JS 控制，不需寫死 opacity */
 
 /* 引言區 */
 .quote-section { padding: 150px 0; background: var(--bg-dark); }
@@ -72,22 +55,24 @@ body {
 .quote-main .highlight { color: var(--gold-primary); font-size: 2rem;}
 .separator { width: 40px; height: 1px; background: var(--gold-primary); margin: 0 auto 40px; }
 .quote-sub { font-size: 1rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 40px; }
-.quote-author { font-family: var(--font-serif); color: var(--gold-light); font-size: 0.95rem; letter-spacing: 0.1em; }
 
-/* 輪播區 */
+/* === 修復輪播重疊問題 === */
 .slider-section { padding: 80px 0 120px; background: var(--surface-dark); border-top: 1px solid rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.03);}
-.painSwiper { max-width: 900px; padding-bottom: 60px; margin: 0 auto; }
+.pre-title { font-family: var(--font-eng); color: var(--text-muted); letter-spacing: 0.3em; font-size: 0.8rem; margin-bottom: 15px;}
+.section-title { font-family: var(--font-serif); font-size: 2.5rem; margin-bottom: 60px; letter-spacing: 0.1em; }
+.painSwiper { max-width: 900px; padding-bottom: 60px; margin: 0 auto; overflow: hidden; /* 防止文字溢出 */ }
+/* 強制設定不活躍的 Slide 隱藏，解決疊影問題 */
+.swiper-slide { opacity: 0 !important; transition: opacity 0.8s ease; visibility: hidden; }
+.swiper-slide-active { opacity: 1 !important; visibility: visible; }
+
 .img-frame { overflow: hidden; border-radius: 4px; margin-bottom: 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
-.slide-img { width: 100%; transition: transform 6s ease; display: block; }
-.swiper-slide-active .slide-img { transform: scale(1.05); } 
+.slide-img { width: 100%; display: block; }
 .slide-text { font-family: var(--font-serif); font-size: 1.6rem; line-height: 1.8; color: #fff; }
 .swiper-pagination-bullet { background: #fff; opacity: 0.2; width: 10px; height: 10px; transition: 0.3s;}
 .swiper-pagination-bullet-active { background: var(--gold-primary); opacity: 1; width: 30px; border-radius: 5px;}
 
 /* 產品區 */
 .product-section { padding: 150px 0; background: var(--bg-dark); }
-.pre-title { font-family: var(--font-eng); color: var(--text-muted); letter-spacing: 0.3em; font-size: 0.8rem; margin-bottom: 15px;}
-.section-title { font-family: var(--font-serif); font-size: 2.5rem; margin-bottom: 80px; letter-spacing: 0.1em; }
 .product-layout { display: flex; gap: 80px; align-items: center; max-width: 1100px; margin: 0 auto; }
 .product-img-wrapper { flex: 1; }
 .product-glow { position: relative; }
@@ -101,18 +86,19 @@ body {
 .ingredient-item p { font-size: 0.95rem; color: var(--text-muted); }
 .ingredient-item p strong { color: #fff; font-weight: 400;}
 
-/* === 新增：方便攜帶區 === */
+/* 方便攜帶區 */
 .portable-section { padding: 120px 0; background: var(--surface-dark); border-top: 1px solid rgba(255,255,255,0.03); }
 .portable-layout { display: flex; align-items: center; justify-content: space-between; gap: 60px; max-width: 900px; margin: 0 auto;}
 .portable-text { flex: 1; text-align: left; }
 .portable-desc { font-size: 1.2rem; line-height: 1.8; color: var(--text-light); margin-top: 20px; }
-.portable-img-wrapper { flex: 1; }
+.portable-img-wrapper { flex: 1; text-align: center; }
+.portable-img { max-width: 100%; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
 .floating { animation: float 6s ease-in-out infinite; }
 @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
 
-/* === 新增：安全認證區 (毛玻璃設計) === */
+/* === 升級：安全認證區 (Remix 圖示取代 Emoji) === */
 .cert-section { padding: 150px 0; background: var(--bg-dark); }
-.cert-subtitle { font-size: 1rem; color: var(--text-muted); margin-top: -60px; margin-bottom: 60px; }
+.cert-subtitle { font-size: 1rem; color: var(--text-muted); margin-top: -40px; margin-bottom: 60px; }
 .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1000px; margin: 0 auto; }
 .cert-card { 
     background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(10px); 
@@ -120,17 +106,16 @@ body {
     border-radius: 8px; transition: all 0.4s ease; cursor: default;
 }
 .cert-card:hover { border-color: rgba(212, 175, 55, 0.4); transform: translateY(-5px); background: rgba(212, 175, 55, 0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-.cert-icon { font-size: 2.5rem; margin-bottom: 15px; filter: grayscale(100%) brightness(150%); transition: 0.4s; }
-.cert-card:hover .cert-icon { filter: grayscale(0%); transform: scale(1.1); }
+.cert-icon { font-size: 3rem; color: var(--text-muted); margin-bottom: 15px; display: inline-block; transition: 0.4s; }
+.cert-card:hover .cert-icon { color: var(--gold-primary); transform: scale(1.1); text-shadow: 0 0 15px rgba(212, 175, 55, 0.4); }
 .cert-card p { font-size: 0.95rem; font-weight: 500; letter-spacing: 0.05em; }
 
-/* === 新增：六宮格痛點區 (漸層黑卡片) === */
+/* 六宮格痛點區 */
 .pain-point-section { padding: 120px 0 150px; background: var(--surface-dark); border-top: 1px solid rgba(255,255,255,0.03); }
 .pain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 1000px; margin: 40px auto 0; }
 .pain-card { 
     background: linear-gradient(145deg, #181818 0%, #0d0d0d 100%);
-    border: 1px solid rgba(255,255,255,0.05); padding: 40px; border-radius: 4px;
-    transition: all 0.4s ease;
+    border: 1px solid rgba(255,255,255,0.05); padding: 40px; border-radius: 4px; transition: all 0.4s ease;
 }
 .pain-card:hover { border-color: var(--gold-primary); transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.6); }
 .pain-word { font-size: 2.5rem; margin-bottom: 10px; }
@@ -138,10 +123,7 @@ body {
 .pain-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
 
 /* 滿版紫色視差 CTA 區 */
-.cta-section {
-    position: relative; padding: 150px 0; width: 100vw; margin-left: calc(-50vw + 50%); 
-    background: url('images/hero-bg.jpg') center/cover no-repeat fixed;
-}
+.cta-section { position: relative; padding: 150px 0; width: 100vw; margin-left: calc(-50vw + 50%); background: url('images/hero-bg.jpg') center/cover no-repeat fixed; }
 .cta-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(25, 5, 45, 0.92) 0%, rgba(45, 15, 60, 0.85) 100%); z-index: 1; }
 .cta-content { position: relative; z-index: 2; }
 .insurance-text { font-family: var(--font-serif); color: var(--gold-light); font-size: 1rem; margin-bottom: 40px; letter-spacing: 0.2em; }
