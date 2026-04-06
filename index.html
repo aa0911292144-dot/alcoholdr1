@@ -3,133 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>首頁 | 博士生技 Alcohol Dr. | 甘杯</title>
+    <title>博士生技 | 甘杯 — C3薑黃複方膠囊</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dark-theme">
 
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <img src="logo.png" alt="博士生技" class="logo-img">
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">首頁</a></li>
-                <li><a href="about.html">關於我們</a></li>
-                <li><a href="science.html">科學研究</a></li>
-                <li><a href="purchase.html">購買</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="contact.html">聯絡我們</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <header id="home" class="hero">
-        <div class="hero-bg-overlay"></div>
-        <div class="hero-content">
-            <h1 class="hero-quote fade-in">“ 甘杯 ”</h1>
-            <p class="hero-subtitle fade-in delay-1">把昨夜的喧囂，留在昨夜。</p>
-            <div class="hero-buttons fade-in delay-2">
-                <a href="#purchase" class="btn btn-gold">立即購買</a>
-                <a href="#science" class="btn btn-outline">了解原理</a>
-            </div>
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="博士生技 Logo" class="logo-img">
+            </a>
+            <nav class="nav-links">
+                <a href="index.html" class="active">首頁</a>
+                <a href="science.html">科學研究</a>
+                <a href="shop.html">購物</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">聯絡我們</a>
+            </nav>
         </div>
     </header>
 
-    <section class="section-dark">
-        <div class="container pain-points-wrapper">
-            <div class="pain-point-item fade-in-up">
-                <div class="pain-img-box"><img src="pain1.jpg" alt="體力下滑" class="pain-img"></div>
-                <div class="pain-text-box"><h2>「體力面臨『斷崖式下滑』？別讓昨夜的乾杯，透支你白天的節奏。」</h2></div>
-            </div>
-            <div class="pain-point-item fade-in-up delay-1">
-                <div class="pain-img-box"><img src="pain2.jpg" alt="宿醉沈重" class="pain-img"></div>
-                <div class="pain-text-box"><h2>「昨夜的精彩，不該用今天的沈重來還：宿醉，還要拖垮你多久？」</h2></div>
-            </div>
-             <div class="pain-point-item fade-in-up delay-2">
-                <div class="pain-img-box"><img src="pain3.jpg" alt="疲憊迴圈" class="pain-img"></div>
-                <div class="pain-text-box"><h2>「白天高壓滿載，身體卻在『隱性透支』：你最近，也陷入這種疲憊迴圈了嗎？」</h2></div>
+    <section class="hero scroll-reveal">
+        <div class="hero-overlay"></div>
+        <img src="images/hero-bg.jpg" alt="酒吧背景" class="hero-bg-img">
+        <div class="container hero-content">
+            <h1 class="hero-title animate-in-1">甘杯</h1>
+            <p class="hero-subtitle animate-in-2">把昨夜的喧囂，留在昨夜。</p>
+            <div class="hero-btns animate-in-3">
+                <a href="shop.html" class="btn btn-gold">立即購買</a>
+                <a href="#philosophy" class="btn btn-dark">了解原理</a>
             </div>
         </div>
     </section>
 
-    <section class="section-black">
-        <div class="container quote-container fade-in">
-            <p class="quote-text">「酒精讓靈魂誠實，但身體需要理性的護航。多年的酒吧後場經驗告訴我：最好的款待，是讓你在狂歡之後，依然能平穩地回歸日常。我們不談奇蹟，只談科學的營養支持。『博士生技』——為了每一個在社交戰場上，依然想保持優雅的靈魂——敬你的努力，也敬你那值得被好好對待的新陳代謝。」</p>
-            <p class="quote-author">— 博士生技創辦人 x 前資深酒吧從業者</p>
-            <a href="about.html" class="btn btn-white">了解更多</a>
+    <section id="philosophy" class="philosophy scroll-reveal">
+        <div class="container">
+            <div class="quote-box scroll-section">
+                <p class="quote-text">「酒精讓頭腦放鬆，但身體需要理性的護航...」</p>
+                <p class="quote-text">最好的解決方案，不是讓你在狂歡之後，依然能平滑地回歸日常。</p>
+                <p class="quote-text">我們不談奇蹟，只談科學實驗的支持。」</p>
+                <p class="quote-author">—— 博士生技創辦人 x 前資深酒吧從業者</p>
+                <a href="science.html" class="btn btn-gold-outline">了解更多</a>
+            </div>
         </div>
     </section>
 
-    <section class="section-black">
-        <div class="container product-container">
-            <div class="product-header fade-in">
-                <p class="subtitle-gold">◆旗艦產品◆</p>
-                <h2 class="title-gold">甘杯 — C3薑黃 × 枳椇子複方膠囊</h2>
-                <div class="product-diamonds">◆ ◆ ◆</div>
-            </div>
-            <div class="product-body">
-                <div class="product-img-box fade-in-up">
-                    <img src="product.jpg" alt="甘杯產品" class="product-main-img">
+    <section class="ingredients scroll-reveal">
+        <div class="container">
+            <h2 class="section-title">旗艦產品 — ◆甘杯◆</h2>
+            <p class="section-subtitle">C3薑黃 x 枳椇子複方膠囊</p>
+            <div class="product-layout scroll-section">
+                <div class="product-img-col">
+                    <img src="images/product-box.png" alt="甘杯產品外盒" class="product-box-img">
                 </div>
-                <div class="product-features-box fade-in-up delay-1">
-                    <ul class="feature-list-gold">
-                        <li><strong>◆ C3 專利薑黃萃取物</strong><p>代謝升級，配方特別採用 C3 Complex® 專利吸收技術，由內而外深層養護，為你喚醒關鍵體力。</p></li>
-                        <li><strong>◆ 日本專利級穀胱甘肽 (GSH)</strong><p>抗氧化力，從根本補足關鍵代謝動能，啟動深層養護機制，讓你隔日依然精神百倍。</p></li>
-                        <li><strong>◆ 專利枳椇子萃取</strong><p>同源修護，舒緩不適。支援深夜的機能平衡，維持身體健康。</p></li>
-                        <li><strong>◆ 專利朝鮮薊萃取</strong><p>根本防護，護肝機制。預先建立一道堅實的防護線。</p></li>
+                <div class="product-info-col">
+                    <ul class="ingredient-cards">
+                        <li class="ingredient-card">
+                            <h3>◆ C3專利薑黃萃取物</h3>
+                            <p>提升代謝，體力恢復。與專利C3 Complex® 技術...（替換為你真實文字）</p>
+                        </li>
+                        <li class="ingredient-card">
+                            <h3>◆ 日本專利穀胱甘肽(GSH)</h3>
+                            <p>抗氧化主力，促進肝臟...（替換為你真實文字）</p>
+                        </li>
+                        <li class="ingredient-card">
+                            <h3>◆ 專利枳椇子萃取</h3>
+                            <p>解酒專利...（替換為你真實文字）</p>
+                        </li>
+                        <li class="ingredient-card">
+                            <h3>◆ 專利朝鮮薊萃取</h3>
+                            <p>解酒與護肝...（替換為你真實文字）</p>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-     <section class="section-black">
-        <div class="container product-bag-container fade-in-up">
-            <div class="product-bag-img-box"><img src="bag.jpg" alt="方便攜帶" class="product-pouch-img"></div>
-            <div class="product-bag-text-box">
-                <h2 class="title-gold" style="border:none;">方便攜帶</h2>
-                <p class="text-gold">不佔空間的貼心隨手一包，把今晚的主導權拿回來。</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-black">
-        <div class="container certs-container fade-in">
-            <h2 class="title-gold" style="border:none; margin-bottom: 5px;">嚴選認證原料</h2>
-            <p class="subtitle-gold" style="text-transform: none;">多國專利植萃，為品質安心把關。</p>
-            <div class="certs-grid-box"><img src="certification.jpg" alt="安全認證" class="certs-grid-img"></div>
-        </div>
-    </section>
-
-    <section class="section-black pain-grid-section">
-        <div class="container pain-grid-container">
-            <div class="pain-grid-header fade-in">
-                <h2 class="quote-gold">"你是否也有過這樣的早晨"</h2>
-                <p class="title-gold" style="border:none; margin-top: 10px;">應酬後的隔天，是你最難應付的戰場</p>
-                <p class="text-gold desc">每一次宿醉，不只是身體的不適——它是一筆算得清楚的商業成本。頭痛、失憶、注意力渙散，讓你在最重要的時刻，以最糟的狀態出現。</p>
-            </div>
-            <div class="pain-grid fade-in-up delay-1">
-                <div class="pain-grid-card"><h2>濁</h2><p>思路沈重，無法開機的晨間<br>昨晚的喧囂在腦海留下厚重的霧。當思考需要支付龐大的體力代價，你損失的不只是清晨，而是精準決策的先機。</p></div>
-                <div class="pain-grid-card"><h2>斷</h2><p>斷片的體面，斷裂的信任<br>最可怕的不是忘記說了什麼，而是忘記了對誰許下承諾。當記憶出現空白，專業形象也隨之出現難以修補的裂縫。</p></div>
-                <div class="pain-grid-card"><h2>渴</h2><p>透支的動能，空轉的行事曆<br>身體機能處於停滯邊緣，即便面對最重要的會議也力不從心。這不是疲勞，而是生理節奏在高壓社交後的徹底失序。</p></div>
-                <div class="pain-grid-card"><h2>悶</h2><p>內在失衡，拒絕運作的抗議<br>失去平衡的生理狀態，讓你連基本的補給都顯得艱難。當身體拒絕配合你的節奏，今天的戰場你已先行退席。</p></div>
-                <div class="pain-grid-card"><h2>浮</h2><p>焦慮餘震，難以平靜的節奏<br>深夜的亢奮化作隔日的空虛與不安。律動失調的生理反應，讓你即便坐在辦公桌前，靈魂卻依然在昨晚的酒氣中浮沉。</p></div>
-                <div class="pain-grid-card"><h2>局</h2><p>無法離席，是商業社會的誠意<br>合作、升遷、凝聚力——舉杯是避不開的共同語言。我們懂那份「不能不去」的沉重，所以為你守住最後的清爽。</p></div>
-            </div>
-            <div class="pain-grid-footer fade-in-up delay-2">
-                <p class="text-gold insurance-text">*本產品已投保新台幣 1000 萬產品責任險*</p>
-                <div class="apply-box">
-                    <p class="title-gold" style="border:none; font-size: 1.5rem;">試用包申請</p>
-                    <p class="text-gold">加 LINE 免費拿試用包，吃完回饋告訴我們有多神。(2包)</p>
-                    <a href="#" class="btn btn-line">
-                        <img src="line-icon.png" alt="LINE" class="line-icon" style="height: 20px; margin-right: 8px;">
-                        LINE
-                    </a>
+    <section class="certs scroll-reveal">
+        <div class="container">
+            <div class="cert-box scroll-section">
+                <h2 class="section-title">嚴選認證原料</h2>
+                <div class="cert-grid">
+                    <div class="cert-item"><img src="images/cert-gras.png" alt="GRAS"></div>
+                    <div class="cert-item"><img src="images/cert-usp.png" alt="USP"></div>
+                    <div class="cert-item"><img src="images/cert-halal.png" alt="HALAL"></div>
+                    <div class="cert-item"><img src="images/cert-kosher.png" alt="KOSHER"></div>
+                    <div class="cert-item"><img src="images/cert-fsc.png" alt="FSC22000"></div>
+                    <div class="cert-item"><img src="images/cert-gmp.png" alt="GMP"></div>
                 </div>
             </div>
         </div>
     </section>
 
+    <section class="pain-points scroll-reveal">
+        <div class="container">
+            <h2 class="section-title">你是否也有過這樣的早晨？</h2>
+            <div class="pain-grid scroll-section">
+                <div class="pain-card"><h3>濁</h3><p>思路沉重，無法開機的晨間...</p></div>
+                <div class="pain-card"><h3>斷</h3><p>斷片的體面，斷裂的信任...</p></div>
+                <div class="pain-card"><h3>渴</h3><p>透支的動能，空轉的行事曆...</p></div>
+                <div class="pain-card"><h3>悶</h3><p>內在失衡，拒絕運作的抗議...</p></div>
+                <div class="pain-card"><h3>浮</h3><p>焦慮餘震，難以平靜的節奏...</p></div>
+                <div class="pain-card"><h3>局</h3><p>無法離席，是商業社會的試意...</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta scroll-reveal">
+        <div class="container scroll-section">
+            <h2>試用包申請</h2>
+            <p>加 LINE 免費拿試用包，吃完拿回饋告訴我們有多神。(2包)</p>
+            <div class="line-btns">
+                <a href="#" class="line-img-btn"><img src="images/line-icon.png" alt="加LINE"></a>
+                <a href="#" class="btn btn-line">申請</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 博士生技 Doctoral Biotech. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
