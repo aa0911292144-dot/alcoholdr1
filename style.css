@@ -81,4 +81,102 @@ section { padding: 120px 0; }
 .slide-img { width: 100%; display: block; }
 .slide-text { font-family: var(--font-serif); font-size: 1.4rem; line-height: 1.6; color: #fff; padding: 0 20px;}
 .swiper-pagination-bullet { background: #fff; opacity: 0.2; width: 8px; height: 8px; transition: 0.3s;}
-.swiper-pagination-bullet-active { background: var(--gold-primary); opacity
+.swiper-pagination-bullet-active { background: var(--gold-primary); opacity: 1; width: 25px; border-radius: 4px;}
+
+/* 產品區 */
+.product-section { background: var(--bg-dark); }
+.product-layout { display: flex; gap: 60px; align-items: center; max-width: 1100px; margin: 0 auto; }
+.product-img-wrapper { flex: 1; }
+.product-glow { position: relative; }
+.product-glow::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; height: 80%; background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, rgba(0,0,0,0) 70%); filter: blur(30px); }
+.product-img { width: 100%; position: relative; z-index: 1; transition: transform 0.5s ease; border-radius: 4px;}
+.product-img:hover { transform: translateY(-10px); }
+.ingredient-list { flex: 1.2; }
+.ingredient-item { margin-bottom: 40px; padding-left: 20px; border-left: 1px solid rgba(212, 175, 55, 0.3); transition: 0.3s;}
+.ingredient-item:hover { border-left-color: var(--gold-primary); }
+.ingredient-item h3 { font-family: var(--font-serif); font-size: 1.15rem; margin-bottom: 10px; }
+.ingredient-item p { font-size: 0.95rem; color: var(--text-muted); }
+.ingredient-item p strong { color: #fff; font-weight: 400;}
+
+/* 方便攜帶區 */
+.portable-section { background: var(--surface-dark); border-top: 1px solid rgba(255,255,255,0.03); }
+.portable-layout { display: flex; align-items: center; justify-content: space-between; gap: 40px; max-width: 900px; margin: 0 auto;}
+.portable-text { flex: 1; text-align: left; }
+.portable-desc { font-size: 1.1rem; line-height: 1.8; color: var(--text-light); margin-top: 20px; }
+.portable-img-wrapper { flex: 1; text-align: center; }
+.portable-img { max-width: 90%; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+.floating { animation: float 6s ease-in-out infinite; }
+@keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
+
+/* 安全認證區 */
+.cert-section { background: var(--bg-dark); }
+.cert-subtitle { font-size: 0.95rem; color: var(--text-muted); margin-top: -30px; margin-bottom: 50px; }
+.cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1000px; margin: 0 auto; }
+.cert-card { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); padding: 30px 15px; border-radius: 8px; transition: all 0.4s ease; cursor: default; }
+.cert-icon { font-size: 2.5rem; color: var(--text-muted); margin-bottom: 10px; display: inline-block; transition: 0.4s; }
+.cert-card:hover { border-color: rgba(212, 175, 55, 0.4); transform: translateY(-5px); background: rgba(212, 175, 55, 0.05); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+.cert-card:hover .cert-icon { color: var(--gold-primary); transform: scale(1.1); text-shadow: 0 0 15px rgba(212, 175, 55, 0.4); }
+.cert-card p { font-size: 0.9rem; font-weight: 500; letter-spacing: 0.05em; margin: 0;}
+
+/* 六宮格痛點區 */
+.pain-point-section { background: var(--surface-dark); border-top: 1px solid rgba(255,255,255,0.03); }
+.pain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; max-width: 1000px; margin: 40px auto 0; }
+.pain-card { background: linear-gradient(145deg, #181818 0%, #0d0d0d 100%); border: 1px solid rgba(255,255,255,0.05); padding: 35px 25px; border-radius: 4px; transition: all 0.4s ease; }
+.pain-card:hover { border-color: var(--gold-primary); transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.6); }
+.pain-word { font-size: 2.2rem; margin-bottom: 10px; }
+.pain-card h3 { font-size: 1.1rem; color: #fff; margin-bottom: 15px; font-weight: 500;}
+.pain-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; margin: 0;}
+
+/* 滿版紫色視差 CTA 區 */
+.cta-section { position: relative; padding: 120px 0; width: 100vw; margin-left: calc(-50vw + 50%); background: url('images/hero-bg.jpg') center/cover no-repeat fixed; }
+.cta-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(25, 5, 45, 0.95) 0%, rgba(45, 15, 60, 0.9) 100%); z-index: 1; }
+.cta-content { position: relative; z-index: 2; padding: 0 20px;}
+.insurance-text { font-family: var(--font-serif); color: var(--gold-light); font-size: 0.95rem; margin-bottom: 30px; letter-spacing: 0.1em; }
+.cta-title { font-family: var(--font-serif); font-size: 2.5rem; margin-bottom: 20px; color: #fff; letter-spacing: 0.05em; }
+.cta-desc { font-size: 1.05rem; margin-bottom: 40px; color: #ccc; font-weight: 300; }
+
+/* =========================================
+   📱 響應式：手機版專屬優化 
+   ========================================= */
+@media (max-width: 900px) {
+    .product-layout, .portable-layout { flex-direction: column; text-align: center; gap: 40px;}
+    .portable-text { text-align: center; }
+    .ingredient-item { text-align: left; }
+}
+
+@media (max-width: 768px) {
+    /* 導覽列漢堡選單 */
+    .mobile-toggle { display: block; }
+    .nav-links {
+        position: absolute; top: 100%; left: 0; width: 100%;
+        background: rgba(10, 10, 10, 0.98); border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        flex-direction: column; text-align: center; padding: 20px 0;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); 
+        transition: 0.4s ease-in-out;
+    }
+    .nav-links.active { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+    .nav-links a { margin: 15px 0; display: block; font-size: 1.1rem; }
+
+    section { padding: 80px 0; }
+    .hero-title { font-size: 2.5rem; margin-bottom: 30px; }
+    .hero-subtitle { font-size: 1.2rem; }
+    .btn { padding: 12px 30px; width: 100%; text-align: center; margin-bottom: 10px; }
+    .btn-group { flex-direction: column; width: 80%; margin: 0 auto; gap: 10px; }
+    
+    .quote-mark { font-size: 3rem; }
+    .quote-main { font-size: 1.3rem; }
+    .quote-main .highlight { font-size: 1.4rem; }
+    
+    .section-title { font-size: 1.8rem; margin-bottom: 40px; }
+    .slide-text { font-size: 1.2rem; }
+    
+    /* 網格重構 */
+    .cert-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; } 
+    .pain-grid { grid-template-columns: 1fr; gap: 20px; } 
+    .pain-card { padding: 25px; }
+    
+    /* 修復 iOS 視差滾動 Bug */
+    .hero { background-attachment: scroll; }
+    .cta-section { background-attachment: scroll; padding: 80px 0;}
+    .cta-title { font-size: 2rem; }
+}
