@@ -1,94 +1,159 @@
 :root {
-    --bg-color: #121212;
-    --surface-color: #1a1a1a;
-    --gold: #C5A059;
-    --text-main: #f5f5f5;
-    --text-muted: #a0a0a0;
+    --bg-dark: #0A0A0A; /* 更深邃的高級黑 */
+    --surface-dark: #121212;
+    --gold-primary: #D4AF37;
+    --gold-light: #F3E5AB;
+    --gold-dark: #997A00;
+    --text-light: #E0E0E0;
+    --text-muted: #888888;
     --font-serif: 'Noto Serif TC', serif;
     --font-sans: 'Noto Sans TC', sans-serif;
+    --font-eng: 'Playfair Display', serif; /* 英文專用優雅字體 */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
 body {
-    background-color: var(--bg-color); color: var(--text-main);
-    font-family: var(--font-sans); line-height: 1.8; overflow-x: hidden;
+    background-color: var(--bg-dark); 
+    color: var(--text-light);
+    font-family: var(--font-sans); 
+    line-height: 1.8; 
+    overflow-x: hidden;
+    letter-spacing: 0.05em; /* 整體文字呼吸感 */
 }
-.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+.container { max-width: 1140px; margin: 0 auto; padding: 0 5%; }
 .text-center { text-align: center; }
 
-/* 導覽列與 Logo */
+/* === 奢華漸層金文字特效 === */
+.text-gradient {
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* === 導覽列 === */
 .navbar {
     position: fixed; top: 0; width: 100%; z-index: 1000;
-    background: rgba(18, 18, 18, 0.95); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 15px 0;
+    background: rgba(10, 10, 10, 0.85); backdrop-filter: blur(12px); 
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15); padding: 15px 0;
+    transition: all 0.4s ease;
 }
 .nav-container { display: flex; justify-content: space-between; align-items: center; }
-.logo-img { height: 55px; width: auto; display: block; border-radius: 4px; } /* 確保 Logo 顯示正常大小 */
-.nav-links a { color: var(--text-main); text-decoration: none; margin-left: 25px; font-size: 0.95rem; transition: 0.3s; }
-.nav-links a:hover { color: var(--gold); }
+.logo-img { height: 45px; width: auto; display: block; border-radius: 2px; }
+.nav-links a { 
+    color: var(--text-light); text-decoration: none; margin-left: 35px; 
+    font-size: 0.9rem; font-weight: 300; letter-spacing: 0.1em; transition: 0.3s; 
+    position: relative;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--gold-primary); }
+.nav-links a::after {
+    content: ''; position: absolute; width: 0; height: 1px; 
+    bottom: -5px; left: 50%; transform: translateX(-50%);
+    background-color: var(--gold-primary); transition: width 0.3s ease;
+}
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
 
-/* 按鈕 */
-.btn { display: inline-block; padding: 12px 35px; text-decoration: none; letter-spacing: 1px; transition: 0.3s; font-weight: 500;}
-.btn-gold { background: var(--gold); color: #000; border: 1px solid var(--gold); }
-.btn-gold:hover { background: transparent; color: var(--gold); }
-.btn-outline { border: 1px solid var(--gold); color: var(--gold); }
-.btn-white { background: #fff; color: #000; border-radius: 4px; padding: 10px 40px; }
-.btn-white:hover { background: #ddd; }
+/* === 高級按鈕與流光特效 === */
+.btn { 
+    display: inline-block; padding: 14px 40px; text-decoration: none; 
+    letter-spacing: 0.15em; font-size: 0.9rem; transition: 0.4s; 
+    position: relative; overflow: hidden; font-weight: 400; border-radius: 2px;
+}
+.btn-gold { background: linear-gradient(to right, var(--gold-dark), var(--gold-primary)); color: #000; border: none; }
+.btn-outline { border: 1px solid var(--gold-primary); color: var(--gold-primary); }
+.btn-outline:hover { background: rgba(212, 175, 55, 0.1); }
+.btn-white { background: #fff; color: #000; padding: 15px 50px; font-weight: 600; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
 
-/* Hero主視覺 */
+/* 按鈕閃過的光澤動畫 */
+.btn-shine::before {
+    content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg); transition: 0.5s;
+}
+.btn-shine:hover::before { left: 150%; }
+.btn-white:hover { background: #f0f0f0; transform: translateY(-3px); box-shadow: 0 15px 25px rgba(0,0,0,0.4); }
+
+/* === Hero 主視覺 === */
 .hero {
     height: 100vh; display: flex; align-items: center; justify-content: center;
     position: relative; text-align: center;
-    background: url('images/hero-bg.jpg') center/cover no-repeat;
+    background: url('images/hero-bg.jpg') center/cover no-repeat fixed; /* Fixed 創造視差效果 */
 }
-.hero-overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7); }
+.hero-overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.9)); }
 .hero-content { position: relative; z-index: 1; }
-.hero-subtitle { color: var(--gold); font-family: var(--font-serif); font-size: 2rem; margin-bottom: 20px; letter-spacing: 4px;}
-.hero-title { font-family: var(--font-serif); font-size: 3.5rem; margin-bottom: 40px; }
+.hero-subtitle { font-family: var(--font-serif); font-size: 1.5rem; letter-spacing: 0.5em; margin-bottom: 20px; font-weight: 500;}
+.hero-title { font-family: var(--font-serif); font-size: 4rem; margin-bottom: 50px; letter-spacing: 0.1em; font-weight: 500; text-shadow: 0 10px 30px rgba(0,0,0,0.8);}
 
-/* 引言區 */
-.quote-section { padding: 120px 0; background: var(--bg-color); }
-.quote-mark { font-size: 4rem; font-family: serif; line-height: 0; margin-bottom: 30px; }
-.quote-main { font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 30px; }
-.quote-sub { font-size: 0.9rem; color: var(--text-muted); max-width: 800px; margin: 0 auto 30px; }
-.quote-author { color: var(--gold); font-size: 0.95rem; margin-bottom: 40px; }
+/* 向下滾動鼠標動畫 */
+.scroll-indicator { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 2;}
+.scroll-indicator span { display: block; width: 20px; height: 30px; border: 2px solid rgba(255,255,255,0.5); border-radius: 15px; position: relative; }
+.scroll-indicator span::before { content: ''; position: absolute; top: 5px; left: 50%; transform: translateX(-50%); width: 4px; height: 6px; background: #fff; border-radius: 2px; animation: scrollDown 2s infinite; }
+@keyframes scrollDown { 0% { top: 5px; opacity: 1; } 100% { top: 18px; opacity: 0; } }
 
-/* === 輪播區 (嚴格置中設定) === */
-.slider-section { padding: 100px 0; background: var(--surface-color); }
-.painSwiper { max-width: 800px; padding-bottom: 60px; margin: 0 auto; }
-.slide-inner { display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.slide-img { max-width: 500px; width: 100%; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
-.slide-text { font-family: var(--font-serif); font-size: 1.4rem; color: var(--gold); line-height: 1.6; max-width: 600px; margin: 0 auto; }
-.swiper-button-next, .swiper-button-prev { color: var(--gold); }
-.swiper-pagination-bullet { background: #fff; opacity: 0.3; }
-.swiper-pagination-bullet-active { background: var(--gold); opacity: 1; }
+/* === 引言區 === */
+.quote-section { padding: 150px 0; background: var(--bg-dark); }
+.quote-mark { font-size: 5rem; font-family: var(--font-eng); line-height: 0; margin-bottom: 40px; opacity: 0.8;}
+.quote-main { font-family: var(--font-serif); font-size: 1.8rem; line-height: 2; margin-bottom: 40px; font-weight: 400; color: #fff;}
+.quote-main .highlight { color: var(--gold-primary); font-size: 2rem;}
+.separator { width: 40px; height: 1px; background: var(--gold-primary); margin: 0 auto 40px; }
+.quote-sub { font-size: 1rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 40px; font-weight: 300; }
+.quote-author { font-family: var(--font-serif); color: var(--gold-light); font-size: 0.95rem; letter-spacing: 0.1em; }
 
-/* 產品區 */
-.product-section { padding: 120px 0; background: var(--bg-color); }
-.section-title { font-family: var(--font-serif); font-size: 2.2rem; color: var(--gold); margin-bottom: 60px; }
-.product-layout { display: flex; gap: 60px; align-items: center; max-width: 1000px; margin: 0 auto; }
-.product-img-wrapper { flex: 1; text-align: center; }
-.product-img { max-width: 100%; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-.ingredient-list { flex: 1; }
-.ingredient-item { margin-bottom: 30px; }
-.ingredient-item h3 { color: var(--gold); font-family: var(--font-serif); font-size: 1.2rem; margin-bottom: 10px; }
-.ingredient-item p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
+/* === 輪播區 (電影感) === */
+.slider-section { padding: 80px 0 120px; background: var(--surface-dark); border-top: 1px solid rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.03);}
+.painSwiper { max-width: 900px; padding-bottom: 60px; margin: 0 auto; }
+.img-frame { overflow: hidden; border-radius: 4px; margin-bottom: 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
+.slide-img { width: 100%; transition: transform 6s ease; display: block; }
+.swiper-slide-active .slide-img { transform: scale(1.05); } /* 緩慢放大的高級特效 */
+.slide-text { font-family: var(--font-serif); font-size: 1.6rem; line-height: 1.8; color: #fff; }
+.swiper-pagination-bullet { background: #fff; opacity: 0.2; width: 10px; height: 10px; transition: 0.3s;}
+.swiper-pagination-bullet-active { background: var(--gold-primary); opacity: 1; width: 30px; border-radius: 5px;}
 
-/* === 紫色 CTA 區塊 === */
-.insurance-text { color: var(--gold); font-size: 1rem; margin-bottom: 60px; font-family: var(--font-serif); }
-.cta-content {
-    padding: 80px 20px;
-    background: linear-gradient(rgba(58, 28, 113, 0.85), rgba(58, 28, 113, 0.85)), url('images/hero-bg.jpg') center/cover;
-    border-radius: 8px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+/* === 產品區 === */
+.product-section { padding: 150px 0; background: var(--bg-dark); }
+.pre-title { font-family: var(--font-eng); color: var(--text-muted); letter-spacing: 0.3em; font-size: 0.8rem; margin-bottom: 15px;}
+.section-title { font-family: var(--font-serif); font-size: 2.5rem; margin-bottom: 80px; letter-spacing: 0.1em; }
+.product-layout { display: flex; gap: 80px; align-items: center; max-width: 1100px; margin: 0 auto; }
+.product-img-wrapper { flex: 1; }
+/* 產品圖後方的優雅發光 */
+.product-glow { position: relative; }
+.product-glow::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; height: 80%; background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, rgba(0,0,0,0) 70%); z-index: 0; filter: blur(30px); }
+.product-img { width: 100%; position: relative; z-index: 1; transition: transform 0.5s ease; }
+.product-img:hover { transform: translateY(-10px); }
+
+.ingredient-list { flex: 1.2; }
+.ingredient-item { margin-bottom: 45px; position: relative; padding-left: 20px; border-left: 1px solid rgba(212, 175, 55, 0.3); transition: 0.3s;}
+.ingredient-item:hover { border-left-color: var(--gold-primary); }
+.ingredient-item h3 { font-family: var(--font-serif); font-size: 1.25rem; margin-bottom: 12px; letter-spacing: 0.05em;}
+.ingredient-item p { font-size: 0.95rem; color: var(--text-muted); font-weight: 300; }
+.ingredient-item p strong { color: #fff; font-weight: 400;}
+
+/* === 滿版紫色視差 CTA 區 (解決不連貫問題) === */
+.cta-section {
+    position: relative;
+    padding: 150px 0;
+    /* 滿版背景，採用 fixed 達成視差滾動 */
+    background: url('images/hero-bg.jpg') center/cover no-repeat fixed;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%); /* 突破 container 限制滿版 */
 }
-.cta-content h2 { font-family: var(--font-serif); font-size: 2.5rem; margin-bottom: 15px; color: #fff; }
-.cta-content p { font-size: 1.1rem; margin-bottom: 40px; color: #eee; }
-.btn-line { background: #fff; color: #000; font-weight: bold; border-radius: 4px; padding: 15px 60px; font-size: 1.1rem; }
-.btn-line:hover { background: #e0e0e0; }
+.cta-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    /* 高級紫羅蘭漸層遮罩 */
+    background: linear-gradient(135deg, rgba(25, 5, 45, 0.92) 0%, rgba(45, 15, 60, 0.85) 100%);
+    z-index: 1;
+}
+.cta-content { position: relative; z-index: 2; }
+.insurance-text { font-family: var(--font-serif); color: var(--gold-light); font-size: 1rem; margin-bottom: 40px; letter-spacing: 0.2em; }
+.cta-title { font-family: var(--font-serif); font-size: 3rem; margin-bottom: 20px; color: #fff; letter-spacing: 0.1em; }
+.cta-desc { font-size: 1.1rem; margin-bottom: 50px; color: #ccc; font-weight: 300; line-height: 1.8;}
 
-@media (max-width: 768px) {
-    .product-layout { flex-direction: column; text-align: center; }
-    .hero-title { font-size: 2.5rem; }
-    .slide-img { max-width: 90%; }
+@media (max-width: 900px) {
+    .product-layout { flex-direction: column; text-align: center; gap: 40px;}
+    .hero-title { font-size: 2.8rem; }
+    .quote-main { font-size: 1.5rem; }
+    .ingredient-item { text-align: left; }
 }
