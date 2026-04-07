@@ -2,255 +2,251 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-    <title>博士生技 | 甘杯 — 頂級C3薑黃複方膠囊</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alcohol Dr. 酒精博士 | 專為品酒者設計的極致修復</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --deep-black: #0A0A0A;
+            --text-gray: #A0A0A0;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
+        body {
+            background-color: var(--deep-black);
+            color: white;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* 滾動條美化 */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: var(--primary-gold); border-radius: 10px; }
+
+        /* 背景流光效果 */
+        .bg-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #000 100%);
+            z-index: -1;
+        }
+
+        /* 導覽列 */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 25px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--primary-gold);
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        /* Hero 視覺區 */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 15px;
+            text-transform: uppercase;
+            background: linear-gradient(to bottom, #fff 30%, var(--primary-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s forwards 0.5s;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            letter-spacing: 5px;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeInUp 1s forwards 0.8s;
+        }
+
+        /* 按鈕設計 */
+        .cta-button {
+            padding: 15px 45px;
+            border: 1px solid var(--primary-gold);
+            background: transparent;
+            color: var(--primary-gold);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-gold);
+            color: black;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+        }
+
+        /* 產品特色卡片區 */
+        .features {
+            padding: 100px 10%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--glass-bg);
+            padding: 50px 40px;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 2px;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-gold);
+            background: rgba(255,255,255,0.08);
+        }
+
+        .card i {
+            font-size: 2.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 25px;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 2;
+        }
+
+        /* 裝飾性小特效 */
+        .accent-line {
+            width: 50px;
+            height: 2px;
+            background: var(--primary-gold);
+            margin: 20px 0;
+        }
+
+        /* 動畫 */
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 回應式優化 */
+        @media (max-width: 768px) {
+            nav { padding: 20px; }
+            .hero h1 { letter-spacing: 8px; }
+        }
+    </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="container nav-container">
-            <div class="logo">
-                <a href="index.html"><img src="images/logo.png.jpg" alt="博士生技" class="logo-img"></a>
-            </div>
-            <div class="mobile-toggle"><i class="ri-menu-3-line"></i></div>
-            <div class="nav-links">
-                <a href="index.html" class="active">首頁</a>
-                <a href="#">關於我們</a>
-                <a href="#">科學研究</a>
-                <a href="#">購買</a>
-                <a href="#">FAQ</a>
-                <a href="#">聯絡我們</a>
-            </div>
-        </div>
+    <div class="bg-glow"></div>
+
+    <nav>
+        <div class="logo">ALCOHOL DR.</div>
+        <a href="#explore" class="cta-button" style="padding: 10px 25px; font-size: 0.7rem;">聯繫我們</a>
     </nav>
 
     <section class="hero">
-        <video class="hero-bg-video" autoplay loop muted playsinline>
-            <source src="images/hero-video.mp4" type="video/mp4">
-        </video>
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <h2 class="hero-subtitle text-gradient cinematic-reveal">“ 甘 杯 “</h2>
-            <h1 class="hero-title cinematic-reveal-delayed">把昨夜的喧囂，留在昨夜。</h1>
-            <div class="btn-group cinematic-reveal-delayed-more">
-                <a href="https://lin.ee/6GoFOgH" target="_blank" class="btn btn-gold btn-shine">立即購買</a>
-                <a href="#quote" class="btn btn-outline">了解原理</a>
-            </div>
+        <p>RECOVERY & SCIENCE</p>
+        <h1>酒精博士</h1>
+        <p>為每一場深夜的歡愉，提供科學的救贖</p>
+        <div class="accent-line"></div>
+        <a href="#features" class="cta-button">探索奧秘</a>
+    </section>
+
+    <section class="features" id="features">
+        <div class="card">
+            <i class="fa-solid fa-flask-vial"></i>
+            <h3>精準配方</h3>
+            <div class="accent-line"></div>
+            <p>融合現代生物科技，針對酒精代謝過程提供精準支持。這不僅是補充，更是一場體內的微米級修復工程。</p>
+        </div>
+
+        <div class="card">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h3>極致防禦</h3>
+            <div class="accent-line"></div>
+            <p>在應酬與聚會之間，為您的身體築起一道透明的防護牆，讓隔日的早晨依然如晨曦般清亮。</p>
+        </div>
+
+        <div class="card">
+            <i class="fa-solid fa-leaf"></i>
+            <h3>純粹萃取</h3>
+            <div class="accent-line"></div>
+            <p>拒絕多餘添加。我們只保留大自然中最純淨的修復能量，轉化為您應對挑戰的底氣。</p>
         </div>
     </section>
 
-    <section id="quote" class="quote-section gs-reveal">
-        <div class="container text-center">
-            <div class="quote-mark text-gradient">❞</div>
-            <h3 class="quote-main">「酒精讓靈魂誠實，但身體需要理性的護航。<br>
-            <span class="highlight text-gradient">最好的款待，是讓你在狂歡之後，依然能平穩地回歸日常。</span>」</h3>
-            <div class="separator"></div>
-            <p class="quote-sub">我們不談奇蹟，只談科學的營養支持。『博士生技』——為了每一個在社交戰場上，依然想保持優雅的靈魂。<br>敬你的努力，也敬你那值得被好好對待的新陳代謝。</p>
-            <p class="quote-author">—— 博士生技創辦人 X 前資深酒吧從業者</p>
-        </div>
-    </section>
+    <footer style="padding: 50px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
+        <p style="font-size: 0.8rem; color: #555; letter-spacing: 2px;">&copy; 2026 ALCOHOL DR. 酒精博士 - 全台首席飲酒對策</p>
+    </footer>
 
-    <section class="slider-section">
-        <div class="container text-center">
-            <p class="pre-title">PAIN POINTS</p>
-            <h3 class="section-title">"你是否也有過這樣的早晨"</h3>
-        </div>
-        <div class="swiper painSwiper gs-reveal">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="slide-inner text-center">
-                        <div class="img-frame"><img src="images/pain1.jpg" alt="宿醉" class="slide-img"></div>
-                        <p class="slide-text">「昨夜的精彩，不該用今天的沉重來還：<br><span class="text-gradient">宿醉，還要拖垮你多久？</span>」</p>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="slide-inner text-center">
-                        <div class="img-frame"><img src="images/pain2.jpg" alt="透支" class="slide-img"></div>
-                        <p class="slide-text">「白天高壓滿載，身體卻在『隱性透支』：<br><span class="text-gradient">你最近，也陷入這種疲憊迴圈了嗎？</span>」</p>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="slide-inner text-center">
-                        <div class="img-frame"><img src="images/pain3.jpg" alt="體力下滑" class="slide-img"></div>
-                        <p class="slide-text">「體力面臨『斷崖式下滑』？<br><span class="text-gradient">別讓昨夜的乾杯，透支你白天的節奏。</span>」</p>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-pagination"></div>
-        </div>
-    </section>
+    <script>
+        // 簡單的滾動視差與淡入效果
+        window.addEventListener('scroll', () => {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                if (cardTop < window.innerHeight * 0.8) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        });
 
-    <section class="product-section">
-        <div class="container">
-            <div class="section-heading text-center gs-reveal">
-                <p class="pre-title">FLAGSHIP PRODUCT</p>
-                <h2 class="section-title text-gradient">甘杯 — C3薑黃 × 枳椇子複方膠囊</h2>
-            </div>
-            <div class="product-layout">
-                <div class="product-img-wrapper gs-reveal-left">
-                    <div class="product-glow">
-                        <img src="images/product.jpg" alt="甘杯產品" class="product-img">
-                    </div>
-                </div>
-                <div class="ingredient-list gs-reveal-right">
-                    <div class="ingredient-item">
-                        <h3 class="text-gradient">◆ C3 專利薑黃萃取物</h3>
-                        <p><strong>代謝升級，體力後援。</strong> 採用 C3 Complex® 高吸收專利技術，在社交高壓時刻促進新陳代謝，由內而外滋補強身，為你續航關鍵體力。</p>
-                    </div>
-                    <div class="ingredient-item">
-                        <h3 class="text-gradient">◆ 日本專利級穀胱甘肽 (GSH)</h3>
-                        <p><strong>抗氧化力，能量平衡。</strong> 補充關鍵代謝動能，具優異抗氧化作用並協助調節生理機能，讓身體能量在律動中維持正常代謝。</p>
-                    </div>
-                    <div class="ingredient-item">
-                        <h3 class="text-gradient">◆ 專利枳椇子萃取</h3>
-                        <p><strong>回歸清爽，狀態歸零。</strong> 嚴選東亞傳統植萃精華，支援深夜後的機能平衡，協助身體恢復清爽神采，重新掌握生活節奏。</p>
-                    </div>
-                    <div class="ingredient-item">
-                        <h3 class="text-gradient">◆ 專利朝鮮薊萃取</h3>
-                        <p><strong>植萃防護罩，守護長期體面。</strong> 萃取自歐洲風行多年的「蔬菜之皇」，高活性洋薊酸為頻繁的舉杯時刻，預先建立一道堅實的健康防線，讓每一次交際都從容無負擔。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="portable-section">
-        <div class="container portable-layout">
-            <div class="portable-text gs-reveal-left">
-                <p class="pre-title">CONVENIENCE</p>
-                <h2 class="section-title text-gradient" style="margin-bottom: 20px;">方便攜帶</h2>
-                <p class="portable-desc">不佔空間的貼心隨手一包，<br>把今晚的主導權，優雅地拿回來。</p>
-            </div>
-            <div class="portable-img-wrapper gs-reveal-right">
-                <img src="images/product.jpg" alt="甘杯單包裝" class="portable-img floating">
-            </div>
-        </div>
-    </section>
-
-    <section class="cert-section">
-        <div class="container text-center">
-            <h2 class="section-title text-gradient gs-reveal" style="margin-bottom: 20px;">嚴選認證原料</h2>
-            <p class="cert-subtitle gs-reveal">多國專利植萃，為品質安心把關。</p>
-            <div class="cert-grid">
-                <div class="cert-card gs-stagger">
-                    <i class="ri-shield-check-line cert-icon"></i>
-                    <p>GRAS認證</p>
-                </div>
-                <div class="cert-card gs-stagger">
-                    <i class="ri-medal-line cert-icon"></i>
-                    <p>符合USP規範</p>
-                </div>
-                <div class="cert-card gs-stagger">
-                    <i class="ri-global-line cert-icon"></i>
-                    <p>HALAL認證</p>
-                </div>
-                <div class="cert-card gs-stagger">
-                    <i class="ri-award-line cert-icon"></i>
-                    <p>KOSHER規範</p>
-                </div>
-                <div class="cert-card gs-stagger">
-                    <i class="ri-leaf-line cert-icon"></i>
-                    <p>FSC22000</p>
-                </div>
-                <div class="cert-card gs-stagger">
-                    <i class="ri-settings-4-line cert-icon"></i>
-                    <p>GMP生產規範</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="testimonial-section">
-        <div class="container text-center">
-            <p class="pre-title">CUSTOMER STORIES</p>
-            <h2 class="section-title text-gradient" style="margin-bottom: 50px;">來自各界的真實見證</h2>
-        </div>
-        <div class="swiper testimonialSwiper gs-reveal">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="testimonial-card">
-                        <i class="ri-double-quotes-l quote-icon"></i>
-                        <h3 class="testi-title text-gradient">商務菁英的從容</h3>
-                        <h4 class="testi-headline">「晨會不再是惡夢，這是我應酬的秘密武器。」</h4>
-                        <p class="testi-text">「以前跑業務連喝三攤，隔天根本起不來。現在聚餐前先吃，隔天早上的大會依然精神旺盛、思緒清晰。包裝很有質感，拿出來也不會覺得尷尬，真的是商務神隊友！」</p>
-                        <div class="testi-author">— 科技業 專案經理 / 王先生</div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="testimonial-card">
-                        <i class="ri-double-quotes-l quote-icon"></i>
-                        <h3 class="testi-title text-gradient">週末品酒愛好者</h3>
-                        <h4 class="testi-headline">「終於能好好享受週末，不再把時間睡掉。」</h4>
-                        <p class="testi-text">「週末喜歡跟朋友去酒吧小酌，但以前總怕隔天整個週末泡湯。試了幾次，隔天醒來意外地清爽，完全不影響隔天的行程，讓我能盡情享受微醺的美好。」</p>
-                        <div class="testi-author">— 行銷企劃 / 林小姐</div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="testimonial-card">
-                        <i class="ri-double-quotes-l quote-icon"></i>
-                        <h3 class="testi-title text-gradient">注重品味的質感人士</h3>
-                        <h4 class="testi-headline">「市面上唯一讓我願意放在精品包裡的設計。」</h4>
-                        <p class="testi-text">「以前買過很多類似產品，味道跟包裝都讓人卻步。這款不僅吞嚥好入口、沒有怪味，C3 專利薑黃的成分也讓人很安心。促進新陳代謝的感覺很明顯，已經推坑給身邊一票朋友了！」</p>
-                        <div class="testi-author">— 自媒體創作者 / 陳小姐</div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-pagination testi-pagination"></div>
-        </div>
-    </section>
-
-    <section class="pain-point-section">
-        <div class="container">
-            <div class="text-center gs-reveal">
-                <h2 class="section-title" style="margin-bottom: 20px;">應酬後的<span class="text-gradient">隔天</span>，是你最難應付的戰場</h2>
-                <p class="cert-subtitle">每一次宿醉，不只是身體的不適——它是一筆算得清楚的商業成本。</p>
-            </div>
-            <div class="pain-grid">
-                <div class="pain-card gs-stagger-pain"><h2 class="pain-word text-gradient">濁</h2><h3>思路沉重，無法開機的晨間</h3><p>昨晚的喧囂在腦海留下厚重的霧。當思考需要支付龐大體力代價，你損失的不只是清晨，而是決策的先機。</p></div>
-                <div class="pain-card gs-stagger-pain"><h2 class="pain-word text-gradient">斷</h2><h3>斷片的體面，斷裂的信任</h3><p>最可怕的不是忘記說了什麼，而是忘記對誰許下承諾。當記憶出現空白，專業形象也隨之出現難以修補的裂縫。</p></div>
-                <div class="pain-card gs-stagger-pain"><h2 class="pain-word text-gradient">渴</h2><h3>透支的動能，空轉的行事曆</h3><p>身體機能處於停滯邊緣，面對最重要會議也力不從心。這不是疲勞，而是生理節奏在高壓社交後的徹底失序。</p></div>
-                <div class="pain-card gs-stagger-pain"><h2 class="pain-word text-gradient">悶</h2><h3>內在失衡，拒絕運作的抗議</h3><p>失去平衡的生理狀態，讓你連基本的補給都顯得艱難。當身體拒絕配合你的節奏，今天的戰場你已先行退席。</p></div>
-                <div class="pain-card gs-stagger-pain"><h2 class="pain-word text-gradient">浮</h2><h3>焦慮餘震，難以平靜的節奏</h3><p>深夜的亢奮化作隔日的空虛與不安。律動失調的生理反應，讓你即便坐在辦公桌前，靈魂卻依然在酒氣中浮沉。</p></div>
-                <div class="pain-card gs-stagger-pain"><h2 class="pain-word text-gradient">局</h2><h3>無法離席，是商業社會的誠意</h3><p>合作、升遷、凝聚力——舉杯是避不開的共同語言。我們懂那份「不能不去」的沉重，所以為你守住最後的清爽。</p></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta-section gs-reveal">
-        <div class="cta-overlay"></div>
-        <div class="container text-center cta-content">
-            <p class="insurance-text">❖ 本產品已投保新台幣 1000 萬產品責任險 ❖</p>
-            <h2 class="cta-title">專屬於您的體驗</h2>
-            <p class="cta-desc">親身感受，讓數據與身體告訴你答案。</p>
-            
-            <div class="urgency-box">
-                <div class="urgency-text">
-                    <span class="pulse-dot"></span> 
-                    <span>本月首發限量 200 份免費體驗包 (2入)</span>
-                </div>
-                <div class="progress-container">
-                    <div class="progress-bar" id="dynamic-bar" style="width: 100%;"></div>
-                </div>
-                <p class="remaining-text">目前僅剩餘 <span class="text-gradient highlight-num" id="dynamic-num">200</span> 份，發完即止</p>
-            </div>
-
-            <a href="https://lin.ee/6GoFOgH" target="_blank" class="btn btn-white btn-shine line-icon">立即加入 LINE 搶先申請</a>
-        </div>
-    </section>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script src="script.js"></script>
+        // 初始化卡片狀態
+        document.querySelectorAll('.card').forEach(c => {
+            c.style.opacity = '0';
+            c.style.transform = 'translateY(50px)';
+            c.style.transition = 'all 0.8s ease-out';
+        });
+    </script>
 </body>
 </html>
