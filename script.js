@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // 2. 動畫註冊
     gsap.registerPlugin(ScrollTrigger);
 
-    // 首頁電影級進場
     gsap.fromTo('.cinematic-reveal', 
         { opacity: 0, y: 30, filter: "blur(15px)" }, 
         { opacity: 1, y: 0, filter: "blur(0px)", duration: 2, ease: "power3.out", delay: 0.5 }
@@ -33,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function() {
         { opacity: 1, y: 0, duration: 1.5, ease: "power2.out", delay: 2.2 }
     );
 
-    // 基礎滾動上浮
     gsap.utils.toArray('.gs-reveal').forEach(function(elem) {
         gsap.fromTo(elem, 
             { y: 40, opacity: 0, filter: "blur(5px)" }, 
@@ -42,17 +40,9 @@ document.addEventListener("DOMContentLoaded", function() {
         );
     });
 
-    // 左右滑入特效
-    gsap.fromTo('.gs-reveal-left', 
-        { x: -30, opacity: 0 }, 
-        { x: 0, opacity: 1, duration: 1.2, ease: "power3.out", scrollTrigger: { trigger: '.gs-reveal-left', start: "top 80%" } }
-    );
-    gsap.fromTo('.gs-reveal-right', 
-        { x: 30, opacity: 0 }, 
-        { x: 0, opacity: 1, duration: 1.2, ease: "power3.out", scrollTrigger: { trigger: '.gs-reveal-right', start: "top 80%" } }
-    );
+    gsap.fromTo('.gs-reveal-left', { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 1.2, ease: "power3.out", scrollTrigger: { trigger: '.gs-reveal-left', start: "top 80%" } });
+    gsap.fromTo('.gs-reveal-right', { x: 30, opacity: 0 }, { x: 0, opacity: 1, duration: 1.2, ease: "power3.out", scrollTrigger: { trigger: '.gs-reveal-right', start: "top 80%" } });
 
-    // Stagger 依序出現
     ScrollTrigger.create({
         trigger: ".cert-grid", start: "top 80%",
         onEnter: () => { gsap.fromTo(".gs-stagger", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "power2.out" }); }
@@ -62,19 +52,16 @@ document.addEventListener("DOMContentLoaded", function() {
         onEnter: () => { gsap.fromTo(".gs-stagger-pain", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: "back.out(1.1)" }); }
     });
 
-    // 3. 痛點輪播設定
+    // 3. 痛點輪播
     var painSwiper = new Swiper(".painSwiper", {
         loop: true, effect: "fade", fadeEffect: { crossFade: true },
         speed: 1200, autoplay: { delay: 4500, disableOnInteraction: false },
         pagination: { el: ".swiper-pagination", clickable: true },
     });
 
-    // 🔥 4. 新增：見證評價輪播設定 (卡片滑動特效)
+    // 4. 見證評價輪播
     var testiSwiper = new Swiper(".testimonialSwiper", {
-        loop: true,
-        grabCursor: true,
-        spaceBetween: 30,
-        speed: 800,
+        loop: true, grabCursor: true, spaceBetween: 30, speed: 800,
         autoplay: { delay: 5000, disableOnInteraction: false },
         pagination: { el: ".testi-pagination", clickable: true },
     });
@@ -89,12 +76,43 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // 6. 進度條動畫觸發
-    ScrollTrigger.create({
-        trigger: ".urgency-box",
-        start: "top 90%",
-        onEnter: () => {
-            document.querySelector('.progress-bar').style.width = '77%';
+    // 🔥🔥🔥 6. 動態飢餓行銷計算法 (每天自動減少) 🔥🔥🔥
+    function updateUrgencyCounter() {
+        const totalAmount = 200; // 總數 200 份
+        const now = new Date();
+        const currentDay = now.getDate(); // 取得今天是每個月的第幾天 (1~31)
+        const currentHour = now.getHours(); // 取得現在是幾點 (0~23)
+
+        // 計算邏輯：每天固定減少 5 份，且每經過 3 小時會多扣 1 份
+        // 這樣能保證同一個訪客早上看跟晚上看，數字會不一樣！
+        let soldAmount = (currentDay * 5) + Math.floor(currentHour / 3);
+        let remaining = totalAmount - soldAmount;
+
+        // 設定底線：保證數字絕對不會變成負數，最低停在「最後 3 份」，創造極度稀缺感
+        if (remaining < 3) {
+            remaining = 3;
         }
-    });
+
+        // 更新網頁上的數字
+        const numElement = document.getElementById('dynamic-num');
+        if (numElement) {
+            numElement.innerText = remaining;
+        }
+
+        // 搭配滾動動畫：當滑到這個區塊時，進度條才開始縮減
+        ScrollTrigger.create({
+            trigger: ".urgency-box",
+            start: "top 90%",
+            onEnter: () => {
+                const barElement = document.getElementById('dynamic-bar');
+                if (barElement) {
+                    const percentage = (remaining / totalAmount) * 100;
+                    barElement.style.width = percentage + '%';
+                }
+            }
+        });
+    }
+
+    // 執行計算
+    updateUrgencyCounter();
 });
