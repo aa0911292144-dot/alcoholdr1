@@ -11,8 +11,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,7 +24,9 @@
             <div class="logo">
                 <a href="index.html"><img src="images/logo.png.jpg" alt="博士生技" class="logo-img"></a>
             </div>
-            <div class="mobile-toggle"><i class="ri-menu-3-line"></i></div>
+            <div class="mobile-toggle">
+                <i class="ri-menu-3-line"></i>
+            </div>
             <div class="nav-links">
                 <a href="index.html" class="active">首頁</a>
                 <a href="#">關於我們</a>
@@ -39,11 +43,11 @@
             <source src="images/hero-video.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
-        <div class="container hero-content">
+        <div class="hero-content">
             <h2 class="hero-subtitle text-gradient cinematic-reveal">“ 甘 杯 “</h2>
             <h1 class="hero-title cinematic-reveal-delayed">把昨夜的喧囂，留在昨夜。</h1>
             <div class="btn-group cinematic-reveal-delayed-more">
-                <a href="https://lin.ee/6GoFOgH" target="_blank" class="btn btn-gold btn-shine">立即購買</a>
+                <a href="#" class="btn btn-gold btn-shine">立即購買</a>
                 <a href="#quote" class="btn btn-outline">了解原理</a>
             </div>
         </div>
@@ -63,7 +67,7 @@
     <section class="slider-section">
         <div class="container text-center">
             <p class="pre-title">PAIN POINTS</p>
-            <h3 class="section-title">"你是否也有過這樣的早晨"</h3>
+            <h3 class="section-title" style="margin-bottom: 40px;">"你是否也有過這樣的早晨"</h3>
         </div>
         <div class="swiper painSwiper gs-reveal">
             <div class="swiper-wrapper">
@@ -171,41 +175,50 @@
     </section>
 
     <section class="testimonial-section">
-        <div class="container text-center">
-            <p class="pre-title">CUSTOMER STORIES</p>
-            <h2 class="section-title text-gradient" style="margin-bottom: 50px;">來自各界的真實見證</h2>
-        </div>
-        <div class="swiper testimonialSwiper gs-reveal">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="testimonial-card">
-                        <i class="ri-double-quotes-l quote-icon"></i>
-                        <h3 class="testi-title text-gradient">商務菁英的從容</h3>
-                        <h4 class="testi-headline">「晨會不再是惡夢，這是我應酬的秘密武器。」</h4>
-                        <p class="testi-text">「以前跑業務連喝三攤，隔天根本起不來。現在聚餐前先吃，隔天早上的大會依然精神旺盛、思緒清晰。包裝很有質感，拿出來也不會覺得尷尬，真的是商務神隊友！」</p>
-                        <div class="testi-author">— 科技業 專案經理 / 王先生</div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="testimonial-card">
-                        <i class="ri-double-quotes-l quote-icon"></i>
-                        <h3 class="testi-title text-gradient">週末品酒愛好者</h3>
-                        <h4 class="testi-headline">「終於能好好享受週末，不再把時間睡掉。」</h4>
-                        <p class="testi-text">「週末喜歡跟朋友去酒吧小酌，但以前總怕隔天整個週末泡湯。試了幾次，隔天醒來意外地清爽，完全不影響隔天的行程，讓我能盡情享受微醺的美好。」</p>
-                        <div class="testi-author">— 行銷企劃 / 林小姐</div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="testimonial-card">
-                        <i class="ri-double-quotes-l quote-icon"></i>
-                        <h3 class="testi-title text-gradient">注重品味的質感人士</h3>
-                        <h4 class="testi-headline">「市面上唯一讓我願意放在精品包裡的設計。」</h4>
-                        <p class="testi-text">「以前買過很多類似產品，味道跟包裝都讓人卻步。這款不僅吞嚥好入口、沒有怪味，C3 專利薑黃的成分也讓人很安心。促進新陳代謝的感覺很明顯，已經推坑給身邊一票朋友了！」</p>
-                        <div class="testi-author">— 自媒體創作者 / 陳小姐</div>
-                    </div>
-                </div>
+        
+        <video class="testimonial-bg-video" autoplay loop muted playsinline>
+            <source src="images/hero-video.mp4" type="video/mp4">
+        </video>
+        
+        <div class="testimonial-overlay"></div>
+
+        <div class="testimonial-content-wrapper">
+            <div class="container text-center">
+                <p class="pre-title">CUSTOMER STORIES</p>
+                <h2 class="section-title text-gradient" style="margin-bottom: 50px;">來自各界的真實見證</h2>
             </div>
-            <div class="swiper-pagination testi-pagination"></div>
+            <div class="swiper testimonialSwiper gs-reveal">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <i class="ri-double-quotes-l quote-icon"></i>
+                            <h3 class="testi-title text-gradient">商務菁英的從容</h3>
+                            <h4 class="testi-headline">「晨會不再是惡夢，這是我應酬的秘密武器。」</h4>
+                            <p class="testi-text">「以前跑業務連喝三攤，隔天根本起不來。現在聚餐前先吃，隔天早上的大會依然精神旺盛、思緒清晰。包裝很有質感，拿出來也不會覺得尷尬，真的是商務神隊友！」</p>
+                            <div class="testi-author">— 科技業 專案經理 / 王先生</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <i class="ri-double-quotes-l quote-icon"></i>
+                            <h3 class="testi-title text-gradient">週末品酒愛好者</h3>
+                            <h4 class="testi-headline">「終於能好好享受週末，不再把時間睡掉。」</h4>
+                            <p class="testi-text">「週末喜歡跟朋友去酒吧小酌，但以前總怕隔天整個週末泡湯。試了幾次，隔天醒來意外地清爽，完全不影響隔天的行程，讓我能盡情享受微醺的美好。」</p>
+                            <div class="testi-author">— 行銷企劃 / 林小姐</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <i class="ri-double-quotes-l quote-icon"></i>
+                            <h3 class="testi-title text-gradient">注重品味的質感人士</h3>
+                            <h4 class="testi-headline">「市面上唯一讓我願意放在精品包裡的設計。」</h4>
+                            <p class="testi-text">「以前買過很多類似產品，味道跟包裝都讓人卻步。這款不僅吞嚥好入口、沒有怪味，C3 專利薑黃的成分也讓人很安心。促進新陳代謝的感覺很明顯，已經推坑給身邊一票朋友了！」</p>
+                            <div class="testi-author">— 自媒體創作者 / 陳小姐</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination testi-pagination"></div>
+            </div>
         </div>
     </section>
 
@@ -220,7 +233,8 @@
                 <div class="pain-card gs-stagger-pain"><h2 class="pain-word text-gradient">斷</h2><h3>斷片的體面，斷裂的信任</h3><p>最可怕的不是忘記說了什麼，而是忘記對誰許下承諾。當記憶出現空白，專業形象也隨之出現難以修補的裂縫。</p></div>
                 <div class="pain-card gs-stagger-pain"><h2 class="pain-word text-gradient">渴</h2><h3>透支的動能，空轉的行事曆</h3><p>身體機能處於停滯邊緣，面對最重要會議也力不從心。這不是疲勞，而是生理節奏在高壓社交後的徹底失序。</p></div>
                 <div class="pain-card gs-stagger-pain"><h2 class="pain-word text-gradient">悶</h2><h3>內在失衡，拒絕運作的抗議</h3><p>失去平衡的生理狀態，讓你連基本的補給都顯得艱難。當身體拒絕配合你的節奏，今天的戰場你已先行退席。</p></div>
-                <div class="pain-card gs-stagger-pain"><h2 class="pain-word text-gradient">浮</h2><h3>焦慮餘震，難以平靜的節奏</h3><p>深夜的亢奮化作隔日的空虛與不安。律動失調的生理反應，讓你即便坐在辦公桌前，靈魂卻依然在酒氣中浮沉。</p></div>
+                <div class="pain-card gs-stagger-pain"><h2 class="pain-word text-gradient">浮</h2><h3>焦慮餘震，難以平靜的節奏</h3><p>深夜的亢奮化作隔日的空虛與不安。律動失調的生理反應，讓你即便坐在辦公桌前，靈魂卻依然在酒氣中浮沉。</p>
+                </div>
                 <div class="pain-card gs-stagger-pain"><h2 class="pain-word text-gradient">局</h2><h3>無法離席，是商業社會的誠意</h3><p>合作、升遷、凝聚力——舉杯是避不開的共同語言。我們懂那份「不能不去」的沉重，所以為你守住最後的清爽。</p></div>
             </div>
         </div>
@@ -230,7 +244,7 @@
         <div class="cta-overlay"></div>
         <div class="container text-center cta-content">
             <p class="insurance-text">❖ 本產品已投保新台幣 1000 萬產品責任險 ❖</p>
-            <h2 class="cta-title">專屬於您的體驗</h2>
+            <h2 class="cta-title">專屬體驗企劃</h2>
             <p class="cta-desc">親身感受，讓數據與身體告訴你答案。</p>
             
             <div class="urgency-box">
@@ -239,9 +253,9 @@
                     <span>本月首發限量 200 份免費體驗包 (2入)</span>
                 </div>
                 <div class="progress-container">
-                    <div class="progress-bar" id="dynamic-bar" style="width: 100%;"></div>
+                    <div class="progress-bar" style="width: 77%;"></div>
                 </div>
-                <p class="remaining-text">目前僅剩餘 <span class="text-gradient highlight-num" id="dynamic-num">200</span> 份，發完即止</p>
+                <p class="remaining-text">目前僅剩餘 <span class="text-gradient highlight-num">23</span> 份，發完即止</p>
             </div>
 
             <a href="https://lin.ee/6GoFOgH" target="_blank" class="btn btn-white btn-shine line-icon">立即加入 LINE 搶先申請</a>
