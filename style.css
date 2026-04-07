@@ -6,9 +6,9 @@
     --gold-dark: #997A00;
     --text-light: #E0E0E0;
     --text-muted: #888888;
-    --font-sans: 'Montserrat', 'Noto Sans TC', sans-serif;
     --font-serif: 'Noto Serif TC', serif;
-    --font-eng: 'Montserrat', sans-serif; 
+    --font-sans: 'Noto Sans TC', sans-serif;
+    --font-eng: 'Playfair Display', serif; 
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -22,7 +22,7 @@ body {
 .container { max-width: 1140px; margin: 0 auto; padding: 0 5%; }
 .text-center { text-align: center; }
 
-/* 漸層文字 */
+/* 奢華漸層金文字特效 */
 .text-gradient {
     background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block;
@@ -41,14 +41,15 @@ body {
 .btn { display: inline-block; padding: 14px 40px; text-decoration: none; letter-spacing: 0.15em; font-size: 0.9rem; transition: 0.4s; position: relative; overflow: hidden; border-radius: 2px;}
 .btn-gold { background: linear-gradient(to right, var(--gold-dark), var(--gold-primary)); color: #000; border: none; font-weight: 500;}
 .btn-outline { border: 1px solid var(--gold-primary); color: var(--gold-primary); }
+.btn-outline:hover { background: rgba(212, 175, 55, 0.1); }
 .btn-white { background: #fff; color: #000; padding: 15px 50px; font-weight: 600; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
 .btn-shine::before { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%); transform: skewX(-25deg); transition: 0.5s; }
 .btn-shine:hover::before { left: 150%; }
 
-/* === 1. Hero 影片背景 (新增) === */
-.hero { height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; text-align: center; overflow: hidden; background: #000;}
+/* 1. Hero 影片背景 */
+.hero { height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; text-align: center; background: #000; overflow: hidden;}
 .hero-bg-video { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; transform: translateX(-50%) translateY(-50%); z-index: 0; object-fit: cover;}
-.hero-overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(rgba(10,10,10,0.4), rgba(10,10,10,0.85)); z-index: 1;}
+.hero-overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(rgba(10,10,10,0.4), rgba(10,10,10,0.85)); z-index: 1; }
 .hero-content { position: relative; z-index: 2; padding: 0 20px;}
 .hero-subtitle { font-family: var(--font-serif); font-size: 1.5rem; letter-spacing: 0.5em; margin-bottom: 20px;}
 .hero-title { font-family: var(--font-serif); font-size: 4rem; margin-bottom: 50px; letter-spacing: 0.1em; text-shadow: 0 10px 30px rgba(0,0,0,0.8);}
@@ -59,7 +60,7 @@ section { padding: 120px 0; }
 .pre-title { font-family: var(--font-eng); color: var(--text-muted); letter-spacing: 0.3em; font-size: 0.8rem; margin-bottom: 15px;}
 .section-title { font-family: var(--font-serif); font-size: 2.5rem; margin-bottom: 60px; letter-spacing: 0.05em; }
 
-/* 引言區、痛點輪播區、產品區、方便攜帶區、認證區、六宮格區 (保持不變) */
+/* 2. 引言區 */
 .quote-section { background: var(--bg-dark); }
 .quote-mark { font-size: 4rem; font-family: var(--font-eng); line-height: 0; margin-bottom: 30px; opacity: 0.8;}
 .quote-main { font-family: var(--font-serif); font-size: 1.6rem; line-height: 1.8; margin-bottom: 40px; font-weight: 400; color: #fff;}
@@ -68,6 +69,7 @@ section { padding: 120px 0; }
 .quote-sub { font-size: 1rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 40px; }
 .quote-author { font-family: var(--font-serif); color: var(--gold-light); font-size: 0.95rem; letter-spacing: 0.1em; }
 
+/* 3. 痛點輪播區 (不重疊) */
 .slider-section { background: var(--surface-dark); border-top: 1px solid rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.03);}
 .painSwiper { max-width: 900px; padding-bottom: 50px; margin: 0 auto; overflow: hidden; }
 .swiper-slide { opacity: 0 !important; transition: opacity 0.8s ease; visibility: hidden; }
@@ -78,6 +80,7 @@ section { padding: 120px 0; }
 .swiper-pagination-bullet { background: #fff; opacity: 0.2; width: 8px; height: 8px; transition: 0.3s;}
 .swiper-pagination-bullet-active { background: var(--gold-primary); opacity: 1; width: 25px; border-radius: 4px;}
 
+/* 4. 產品區 */
 .product-section { background: var(--bg-dark); }
 .product-layout { display: flex; gap: 60px; align-items: center; max-width: 1100px; margin: 0 auto; }
 .product-img-wrapper { flex: 1; }
@@ -90,8 +93,9 @@ section { padding: 120px 0; }
 .ingredient-item:hover { border-left-color: var(--gold-primary); }
 .ingredient-item h3 { font-family: var(--font-serif); font-size: 1.15rem; margin-bottom: 10px; }
 .ingredient-item p { font-size: 0.95rem; color: var(--text-muted); }
-.ingredient-item p strong { color: #fff; font-weight: 500;}
+.ingredient-item p strong { color: #fff; font-weight: 400;}
 
+/* 5. 方便攜帶區 (解決破圖) */
 .portable-section { background: var(--surface-dark); border-top: 1px solid rgba(255,255,255,0.03); }
 .portable-layout { display: flex; align-items: center; justify-content: space-between; gap: 40px; max-width: 900px; margin: 0 auto;}
 .portable-text { flex: 1; text-align: left; }
@@ -101,6 +105,7 @@ section { padding: 120px 0; }
 .floating { animation: float 6s ease-in-out infinite; }
 @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
 
+/* 6. 安全認證區 */
 .cert-section { background: var(--bg-dark); }
 .cert-subtitle { font-size: 0.95rem; color: var(--text-muted); margin-top: -30px; margin-bottom: 50px; }
 .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1000px; margin: 0 auto; }
@@ -110,11 +115,39 @@ section { padding: 120px 0; }
 .cert-card:hover .cert-icon { color: var(--gold-primary); transform: scale(1.1); text-shadow: 0 0 15px rgba(212, 175, 55, 0.4); }
 .cert-card p { font-size: 0.9rem; font-weight: 500; letter-spacing: 0.05em; margin: 0;}
 
-/* === 新增：使用者見證輪播區 === */
-.testimonial-section { background: var(--surface-dark); border-top: 1px solid rgba(255,255,255,0.03); }
-.testimonialSwiper { padding-bottom: 60px; max-width: 800px; margin: 0 auto;}
+/* 🔥🔥🔥 7. 使用者見證區 - 更新：加入影片背景樣式 🔥🔥🔥 */
+.testimonial-section {
+    position: relative; overflow: hidden; background: #000;
+    /* 調整間距，使影片能完整呈現且不影響內容 */
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+.testimonial-bg-video {
+    position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; transform: translateX(-50%) translateY(-50%);
+    /* 在 overlay 之下 */
+    z-index: 0; 
+    object-fit: cover;
+}
+.testimonial-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    /* 遮罩，上方與下方更暗，確保與上下區塊融合，中間文字清晰 */
+    background: linear-gradient(
+        to bottom,
+        rgba(10, 10, 10, 0.9) 0%,
+        rgba(10, 10, 10, 0.6) 50%,
+        rgba(10, 10, 10, 0.9) 100%
+    );
+    /* 在影片之上，內容之下 */
+    z-index: 1; 
+}
+.testimonial-content-wrapper {
+    position: relative;
+    /* 確保所有內容在 video 和 overlay 之前 */
+    z-index: 2; 
+}
+.testimonialSwiper { padding-bottom: 60px; max-width: 800px; margin: 0 auto; overflow: hidden; position: relative; z-index: 2;}
 .testimonial-card {
-    background: linear-gradient(145deg, #181818 0%, #0a0a0a 100%);
+    background: rgba(24, 24, 24, 0.85); backdrop-filter: blur(10px);
     border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 8px;
     padding: 50px 40px; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.5);
     margin: 10px; /* 給陰影空間 */
@@ -122,36 +155,36 @@ section { padding: 120px 0; }
 .quote-icon { font-size: 3rem; color: rgba(212, 175, 55, 0.2); margin-bottom: 15px; display: block;}
 .testi-title { font-family: var(--font-serif); font-size: 1.1rem; letter-spacing: 0.1em; margin-bottom: 15px; text-transform: uppercase;}
 .testi-headline { font-family: var(--font-serif); font-size: 1.5rem; color: #fff; margin-bottom: 25px; line-height: 1.5; font-weight: 500;}
-.testi-text { font-size: 0.95rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 30px;}
+.testi-text { font-size: 0.95rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 30px; font-weight: 300;}
 .testi-author { font-size: 0.85rem; color: var(--gold-primary); letter-spacing: 0.1em;}
 .testi-pagination .swiper-pagination-bullet-active { background: var(--gold-primary); }
 
+/* 7-1. 六宮格痛點區 */
 .pain-point-section { background: var(--surface-dark); border-top: 1px solid rgba(255,255,255,0.03); }
 .pain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; max-width: 1000px; margin: 40px auto 0; }
 .pain-card { background: linear-gradient(145deg, #181818 0%, #0d0d0d 100%); border: 1px solid rgba(255,255,255,0.05); padding: 35px 25px; border-radius: 4px; transition: all 0.4s ease; }
 .pain-card:hover { border-color: var(--gold-primary); transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.6); }
 .pain-word { font-size: 2.2rem; margin-bottom: 10px; }
 .pain-card h3 { font-size: 1.1rem; color: #fff; margin-bottom: 15px; font-weight: 500;}
-.pain-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; margin: 0;}
+.pain-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; margin: 0; font-weight: 300;}
 
-/* === CTA 區 (新增進度條飢餓行銷) === */
+/* 8. 視差 CTA 區 (限時限量) */
 .cta-section { position: relative; padding: 120px 0; width: 100vw; margin-left: calc(-50vw + 50%); background: url('images/hero-bg.jpg') center/cover no-repeat fixed; }
 .cta-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(25, 5, 45, 0.95) 0%, rgba(45, 15, 60, 0.9) 100%); z-index: 1; }
 .cta-content { position: relative; z-index: 2; padding: 0 20px;}
 .insurance-text { font-family: var(--font-serif); color: var(--gold-light); font-size: 0.95rem; margin-bottom: 30px; letter-spacing: 0.1em; }
 .cta-title { font-family: var(--font-serif); font-size: 2.5rem; margin-bottom: 15px; color: #fff; letter-spacing: 0.05em; }
 .cta-desc { font-size: 1.05rem; margin-bottom: 40px; color: #ccc; font-weight: 300; }
-
 .urgency-box { background: rgba(0,0,0,0.4); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 8px; padding: 25px; max-width: 500px; margin: 0 auto 40px; backdrop-filter: blur(5px);}
 .urgency-text { display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 1rem; color: #fff; margin-bottom: 15px; letter-spacing: 0.05em;}
-.pulse-dot { width: 10px; height: 10px; background-color: #ff3b30; border-radius: 50%; display: inline-block; box-shadow: 0 0 0 rgba(255, 59, 48, 0.7); animation: pulse 1.5s infinite; }
+.pulse-dot { width: 10px; height: 10px; background-color: #ff3b30; border-radius: 50%; display: inline-block; animation: pulse 1.5s infinite; }
 @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(255, 59, 48, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 59, 48, 0); } }
 .progress-container { width: 100%; background-color: rgba(255,255,255,0.1); border-radius: 10px; height: 6px; margin-bottom: 15px; overflow: hidden;}
-.progress-bar { height: 100%; background: linear-gradient(90deg, var(--gold-dark), var(--gold-primary)); border-radius: 10px; transition: width 1s ease-in-out;}
+.progress-bar { height: 100%; background: linear-gradient(90deg, var(--gold-dark), var(--gold-primary)); border-radius: 10px; transition: width 1s ease-in-out; width: 77%; }
 .remaining-text { font-size: 0.9rem; color: #aaa; margin: 0;}
-.highlight-num { font-size: 1.3rem; font-weight: bold; font-family: var(--font-eng); margin: 0 5px;}
+.highlight-num { font-size: 1.3rem; font-weight: bold; margin: 0 5px;}
 
-/* 📱 手機版專屬優化 */
+/* 📱 手機版專屬優化 (國際競賽標準) */
 @media (max-width: 900px) {
     .product-layout, .portable-layout { flex-direction: column; text-align: center; gap: 40px;}
     .portable-text { text-align: center; }
@@ -187,6 +220,7 @@ section { padding: 120px 0; }
     .pain-grid { grid-template-columns: 1fr; gap: 20px; } 
     .pain-card { padding: 25px; }
     
+    .testimonial-section { padding-top: 100px; padding-bottom: 100px; }
     .testimonial-card { padding: 40px 20px; }
     .testi-headline { font-size: 1.3rem; }
     
